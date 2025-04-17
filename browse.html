@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browse Music | HÜSIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Urbanist', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-black text-white">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-80 z-50">
+      <div class="text-2xl font-black tracking-wide">HÜSIC</div>
+      <ul class="flex space-x-6 text-sm font-medium">
+        <li><a href="index.html" class="hover:text-gray-400 transition">Home</a></li>
+        <li><a href="browse.html" class="text-gray-400">Browse</a></li>
+        <li><a href="upload.html" class="hover:text-gray-400 transition">Upload</a></li>
+        <li><a href="login.html" class="hover:text-gray-400 transition">Log In</a></li>
+      </ul>
+    </nav>
+
+    <!-- Browse Page Content -->
+    <main class="pt-24 px-6">
+      <h1 class="text-4xl font-bold mb-6">Browse Music</h1>
+
+      <!-- Trending Section -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">🔥 Trending Songs</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Song 1</div>
+          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Song 2</div>
+          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Song 3</div>
+          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Song 4</div>
+        </div>
+      </section>
+
+      <!-- Featured Artists Section -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">🌟 Featured Artists</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Artist 1</div>
+          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Artist 2</div>
+          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Artist 3</div>
+          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Artist 4</div>
+        </div>
+      </section>
+
+      <!-- Genres Section -->
+      <section class="mb-20">
+        <h2 class="text-2xl font-semibold mb-4">🔎 Explore by Genre</h2>
+        <div class="flex flex-wrap gap-4">
+          <span class="bg-white/10 px-4 py-2 rounded-full hover:bg-white/20 transition cursor-pointer">Hip-Hop</span>
+          <span class="bg-white/10 px-4 py-2 rounded-full hover:bg-white/20 transition cursor-pointer">R&B</span>
+          <span class="bg-white/10 px-4 py-2 rounded-full hover:bg-white/20 transition cursor-pointer">Pop</span>
+          <span class="bg-white/10 px-4 py-2 rounded-full hover:bg-white/20 transition cursor-pointer">Gospel</span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
