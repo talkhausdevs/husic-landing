@@ -1,12 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Browse Artists | HÜSIC</title>
-  <script src="https://cdn.tailwindcss.com">});
-</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse | HÜSIC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Urbanist', sans-serif; }
@@ -20,100 +18,67 @@
       <li><a href="index.html" class="hover:text-gray-400 transition">Home</a></li>
       <li><a href="browse.html" class="text-sky-400">Browse</a></li>
       <li><a href="upload.html" class="hover:text-gray-400 transition">Upload</a></li>
-      <li><a href="login.html" id="authLink" class="hover:text-gray-400 transition">Log In</a></li>
     </ul>
   </nav>
 
-  <!-- Header -->
-  <header class="pt-32 pb-12 text-center max-w-4xl mx-auto">
-    <h1 class="text-5xl font-black mb-2">Browse Artists</h1>
-    <p class="text-gray-400">Discover bold voices, fresh sounds, and rising creators.</p>
-  </header>
+  <main class="pt-32 px-6 max-w-6xl mx-auto">
+    <!-- Artist Cards -->
+    <section class="mb-20">
+      <h2 class="text-2xl font-bold mb-6">🎤 Featured Artists</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Example Artist -->
+        <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
+          <img src="https://via.placeholder.com/300" alt="Artist" class="rounded-xl mb-4">
+          <h3 class="text-lg font-bold">Bijou Nicole</h3>
+          <p class="text-sm text-gray-300 mb-2">Alternative Soul</p>
+          <a href="profile.html?artist=bijou-nicole" class="text-sky-400 text-sm underline">View Profile</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- Genre Filters -->
-  <section class="px-6 pb-20 max-w-6xl mx-auto">
-    <div class="flex flex-wrap gap-3 mb-8 justify-center text-sm font-medium">
-      <button onclick="filterGenre('All')" class="px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-full transition">All</button>
-      <button onclick="filterGenre('Alternative Soul')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Alternative Soul</button>
-      <button onclick="filterGenre('Trap Gospel')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Trap Gospel</button>
-      <button onclick="filterGenre('Lo-fi Hip Hop')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Lo-fi Hip Hop</button>
-      <button onclick="filterGenre('Neo-Soul')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Neo-Soul</button>
-    </div>
+    <!-- Music Videos -->
+    <section class="mb-20">
+      <h2 class="text-2xl font-bold mb-6">🎬 Music Videos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe class="w-full h-full rounded-xl" src="https://www.youtube.com/embed/ScMzIvxBSi4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe class="w-full h-full rounded-xl" src="https://www.youtube.com/embed/kXYiU_JCYtU" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe class="w-full h-full rounded-xl" src="https://www.youtube.com/embed/lWA2pjMjpBs" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
 
-    <div id="artistGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 transition-opacity duration-500 ease-in-out"></div>
-  </section>
+    <!-- Playlists -->
+    <section class="mb-20">
+      <h2 class="text-2xl font-bold mb-6">🎧 Curated Playlists</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-white/5 rounded-xl p-4 hover:bg-white/10 transition">
+          <img src="https://via.placeholder.com/300" class="rounded-lg mb-4">
+          <h3 class="font-semibold text-lg">Late Night Vibes</h3>
+          <p class="text-sm text-gray-300">Lo-fi, chillwave, and slow jams</p>
+        </div>
+        <div class="bg-white/5 rounded-xl p-4 hover:bg-white/10 transition">
+          <img src="https://via.placeholder.com/300" class="rounded-lg mb-4">
+          <h3 class="font-semibold text-lg">Sunday Praise</h3>
+          <p class="text-sm text-gray-300">Trap Gospel and worship bops</p>
+        </div>
+        <div class="bg-white/5 rounded-xl p-4 hover:bg-white/10 transition">
+          <img src="https://via.placeholder.com/300" class="rounded-lg mb-4">
+          <h3 class="font-semibold text-lg">Up Next 🔥</h3>
+          <p class="text-sm text-gray-300">Breakout artists to watch</p>
+        </div>
+      </div>
+    </section>
 
-  <script>
-window.addEventListener("DOMContentLoaded", () => {
-    const artists = [
-      {
-        name: "Bijou Nicole",
-        genre: "Alternative Soul",
-        image: "https://via.placeholder.com/300"
-      },
-      {
-        name: "Rico Flame",
-        genre: "Trap Gospel",
-        image: "https://via.placeholder.com/300"
-      },
-      {
-        name: "Zay Wonder",
-        genre: "Lo-fi Hip Hop",
-        image: "https://via.placeholder.com/300"
-      },
-      {
-        name: "Mama Hope",
-        genre: "Neo-Soul",
-        image: "https://via.placeholder.com/300"
-      }
-    ];
-
-    const container = document.getElementById("artistGrid");
-    let visibleArtists = [];
-    let offset = 0;
-    const pageSize = 4;
-
-    function renderArtists(artistArray) {
-      container.innerHTML = artistArray.map(artist => {
-        const slug = artist.name.toLowerCase().replace(/\s+/g, "-");
-        return `
-          <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
-            <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
-            <h3 class="text-lg font-bold">${artist.name}</h3>
-            <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-            <a href="profile.html?artist=${slug}" class="text-sky-400 text-sm underline">View Profile</a>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function loadMore() {
-      const next = filteredData.slice(offset, offset + pageSize);
-      visibleArtists = visibleArtists.concat(next);
-      offset += pageSize;
-      renderArtists(visibleArtists);
-    }
-
-    let filteredData = artists;
-    function filterGenre(genre) {
-      offset = 0;
-      visibleArtists = [];
-      if (genre === "All") {
-        filteredData = artists;
-      } else {
-        filteredData = artists.filter(artist => artist.genre === genre);
-      }
-      loadMore();
-    }
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY + window.innerHeight >= document.body.offsetHeight - 100) {
-        loadMore();
-      }
-    });
-
-    filterGenre("All");
-  });
-</script>
+    <!-- Trending Tracks (optional later) -->
+    <!-- <section class="mb-20">
+      <h2 class="text-2xl font-bold mb-6">🔥 Trending Now</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">...</div>
+    </section> -->
+  </main>
 </body>
 </html>
