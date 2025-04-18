@@ -38,8 +38,39 @@
       </form>
       <p class="text-center text-sm text-gray-400 mt-4">Already have an account? <a href="login.html" class="underline hover:text-white">Log in</a></p>
     </main>
+    
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
-    <script type="module" src="firebase.js"></script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBgFzQHL_q02mGF083TkLREpFyU0dE3Hcs",
+    authDomain: "husic-6705e.firebaseapp.com",
+    projectId: "husic-6705e",
+    storageBucket: "husic-6705e.appspot.com",
+    messagingSenderId: "311183107893",
+    appId: "1:311183107893:web:c62720409ce8669b64ce7c"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = form.querySelector('input[type="email"]').value;
+    const password = form.querySelector('input[type="password"]').value;
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      alert("Signed up successfully!");
+      window.location.href = "login.html";
+    } catch (error) {
+      alert("Signup failed: " + error.message);
+    }
+  });
+</script>
     <script type="module">
       import { auth } from './firebase.js';
       import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
