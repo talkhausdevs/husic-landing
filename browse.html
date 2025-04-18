@@ -30,7 +30,9 @@
   <main class="px-6 max-w-6xl mx-auto space-y-24">
     <!-- Featured Artists Scroll -->
     <section>
-      <h2 class="text-2xl font-bold mb-4">🎤 Featured Artists</h2>
+      <div class="bg-gradient-to-r from-sky-600 to-blue-400 p-3 rounded-xl mb-4">
+        <h2 class="text-xl font-bold">🎤 Featured Artists</h2>
+      </div>
       <div class="flex gap-6 overflow-x-auto pb-2 scrollbar-hide">
         <div class="min-w-[220px] bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
           <img src="https://via.placeholder.com/300" alt="Artist" class="rounded-xl mb-4">
@@ -44,7 +46,9 @@
 
     <!-- Trending Videos -->
     <section>
-      <h2 class="text-2xl font-bold mb-4">🎬 Trending Music Videos</h2>
+      <div class="bg-gradient-to-r from-blue-500 to-cyan-400 p-3 rounded-xl mb-4">
+        <h2 class="text-xl font-bold">🎬 Trending Music Videos</h2>
+      </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/kXYiU_JCYtU" frameborder="0" allowfullscreen></iframe>
         <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/lWA2pjMjpBs" frameborder="0" allowfullscreen></iframe>
@@ -54,7 +58,9 @@
 
     <!-- Curated Playlists -->
     <section>
-      <h2 class="text-2xl font-bold mb-4">🎧 Curated Playlists</h2>
+      <div class="bg-gradient-to-r from-cyan-500 to-sky-300 p-3 rounded-xl mb-4">
+        <h2 class="text-xl font-bold">🎧 Curated Playlists</h2>
+      </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         <div class="bg-white/5 rounded-xl p-4 hover:bg-white/10 transition">
           <img src="https://via.placeholder.com/300" class="rounded-lg mb-4">
@@ -76,7 +82,9 @@
 
     <!-- Top Podcasts Section -->
     <section>
-      <h2 class="text-2xl font-bold mb-4">🎙️ HÜSIC Top Podcasts</h2>
+      <div class="bg-gradient-to-r from-sky-400 to-blue-300 p-3 rounded-xl mb-4">
+        <h2 class="text-xl font-bold">🎙️ HÜSIC Top Podcasts</h2>
+      </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         <div class="bg-white/5 p-4 rounded-2xl">
           <img src="https://via.placeholder.com/300x300" class="rounded-lg mb-4">
@@ -93,13 +101,83 @@
 
     <!-- Charts -->
     <section>
-      <h2 class="text-2xl font-bold mb-4">📈 Top 10 This Week</h2>
-      <ol class="space-y-3 list-decimal list-inside">
-        <li><span class="text-sky-400">Glow Up Season</span> – Bijou Nicole</li>
-        <li><span class="text-sky-400">Saints Run It Up</span> – Rico Flame</li>
-        <li><span class="text-sky-400">No Doubt</span> – Zay Wonder</li>
-        <!-- Add more chart tracks -->
-      </ol>
+      <div class="bg-gradient-to-r from-blue-600 to-cyan-400 p-3 rounded-xl mb-4">
+        <h2 class="text-xl font-bold">📈 Top 10 This Week</h2>
+      </div>
+      <div class="bg-white/5 p-6 rounded-xl shadow-md">
+        <table class="w-full text-sm">
+          <thead class="text-gray-400">
+            <tr>
+              <th class="text-left">#</th>
+              <th class="text-left">Track</th>
+              <th class="text-left">Artist</th>
+              <th class="text-left">Streams</th>
+            </tr>
+          </thead>
+          <tbody class="text-white">
+            <tr class="border-t border-white/10">
+              <td>1</td>
+              <td>Glow Up Season</td>
+              <td>Bijou Nicole</td>
+              <td>153,217</td>
+            </tr>
+            <tr class="border-t border-white/10">
+              <td>2</td>
+              <td>Saints Run It Up</td>
+              <td>Rico Flame</td>
+              <td>120,984</td>
+            </tr>
+            <tr class="border-t border-white/10">
+              <td>3</td>
+              <td>No Doubt</td>
+              <td>Zay Wonder</td>
+              <td>103,522</td>
+            </tr>
+            <tr class="border-t border-white/10">
+              <td>4</td>
+              <td>Crimson Love</td>
+              <td>Bijou Nicole</td>
+              <td>94,100</td>
+            </tr>
+            <tr class="border-t border-white/10">
+              <td>5</td>
+              <td>Heaven Hotline</td>
+              <td>Rico Flame</td>
+              <td>89,349</td>
+            </tr>
+            <tr class="border-t border-white/10">
+              <td>6</td>
+              <td>Real Talk</td>
+              <td>Bijou Nicole</td>
+              <td>87,211</td>
+            </tr>
+            <tr class="border-t border-white/10">
+              <td>7</td>
+              <td>Faith Over Flex</td>
+              <td>Zay Wonder</td>
+              <td>80,559</td>
+            </tr>
+            <tr class="border-t border-white/10">
+              <td>8</td>
+              <td>Still Here</td>
+              <td>Mama Hope</td>
+              <td>76,002</td>
+            </tr>
+            <tr class="border-t border-white/10">
+              <td>9</td>
+              <td>Elevation</td>
+              <td>Bijou Nicole</td>
+              <td>73,498</td>
+            </tr>
+            <tr class="border-t border-white/10">
+              <td>10</td>
+              <td>Testify Again</td>
+              <td>Rico Flame</td>
+              <td>70,302</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
 </body>
