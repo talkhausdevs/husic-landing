@@ -13,6 +13,7 @@
     </style>
   </head>
   <body class="bg-black text-white">
+    <!-- Navbar -->
     <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-80 z-50">
       <div class="text-2xl font-black tracking-wide">HÜSIC</div>
       <ul class="flex space-x-6 text-sm font-medium">
@@ -23,6 +24,7 @@
       </ul>
     </nav>
 
+    <!-- Login Page Content -->
     <main class="pt-24 px-6 max-w-md mx-auto">
       <h1 class="text-4xl font-bold mb-6 text-center">Welcome Back</h1>
       <form class="space-y-6 bg-white/5 p-6 rounded-xl">
@@ -39,10 +41,21 @@
       <p class="text-center text-sm text-gray-400 mt-4">Don’t have an account? <a href="signup.html" class="underline hover:text-white">Sign up</a></p>
     </main>
 
-    <script type="module" src="firebase.js"></script>
     <script type="module">
-      import { auth } from './firebase.js';
-      import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+      import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBgFzQHL_q02mGF083TkLREpFyU0dE3Hcs",
+        authDomain: "husic-6705e.firebaseapp.com",
+        projectId: "husic-6705e",
+        storageBucket: "husic-6705e.appspot.com",
+        messagingSenderId: "311183107893",
+        appId: "1:311183107893:web:c62720409ce8669b64ce7c"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
 
       const form = document.querySelector("form");
 
