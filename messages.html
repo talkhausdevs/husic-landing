@@ -11,7 +11,12 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
   <style>
     body { font-family: 'Urbanist', sans-serif; }
-    .message-bubble { background-color: #1e293b; border-left: 4px solid #38bdf8; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; }
+    .chat-container { display: grid; grid-template-columns: 300px 1fr; height: 70vh; border: 1px solid #38bdf8; border-radius: 1rem; overflow: hidden; }
+    .chat-sidebar { background-color: #1e293b; padding: 1rem; overflow-y: auto; }
+    .chat-main { background-color: #0f172a; display: flex; flex-direction: column; justify-content: space-between; padding: 1rem; }
+    .chat-header { padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-bottom: 1px solid #38bdf8; display: flex; justify-content: space-between; align-items: center; }
+    .message-left { background-color: #1e293b; padding: 0.75rem; border-radius: 1rem 1rem 1rem 0; margin-bottom: 0.5rem; max-width: 75%; }
+    .message-right { background: linear-gradient(to right, #0ea5e9, #38bdf8); color: white; padding: 0.75rem; border-radius: 1rem 1rem 0 1rem; margin-left: auto; margin-bottom: 0.5rem; max-width: 75%; }
   </style>
 </head>
 <body class="bg-black text-white">
@@ -26,14 +31,42 @@
     </ul>
   </nav>
 
-  <main class="pt-36 px-6 max-w-4xl mx-auto">
-    <h1 class="text-4xl font-black text-center bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-300 bg-clip-text text-transparent mb-10">💬 Chat Inbox</h1>
+  <main class="pt-36 px-6 max-w-6xl mx-auto">
+    <h1 class="text-4xl font-black text-center bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-300 bg-clip-text text-transparent mb-8">📨 Direct Messages</h1>
+    <div class="chat-container">
+      <!-- Left: Conversations (static for now) -->
+      <aside class="chat-sidebar">
+        <h2 class="text-white font-bold text-lg mb-4">Chats</h2>
+        <div class="space-y-4">
+          <button class="block w-full text-left px-4 py-2 bg-white/10 hover:bg-white/20 rounded">@loyalfan93</button>
+          <button class="block w-full text-left px-4 py-2 bg-white/10 hover:bg-white/20 rounded">@hypebeatz</button>
+          <button class="block w-full text-left px-4 py-2 bg-white/10 hover:bg-white/20 rounded">📣 HÜSIC</button>
+        </div>
+      </aside>
 
-    <div id="chatBox" class="mb-6 space-y-4 max-h-[400px] overflow-y-auto"></div>
+      <!-- Right: Active chat -->
+      <section class="chat-main">
+        <div class="chat-header">
+          <div class="flex items-center gap-2">
+            <span class="text-white font-bold">@loyalfan93</span>
+            <span class="text-xs bg-sky-500 text-white px-2 py-1 rounded-full">Fan</span>
+          </div>
+          <button class="text-xs text-red-400 hover:underline">Block</button>
+        </div>
 
-    <div class="flex items-center gap-4">
-      <input id="messageInput" type="text" placeholder="Type your message..." class="flex-1 px-4 py-2 rounded-lg bg-white/10 text-white">
-      <button onclick="sendMessage()" class="bg-sky-500 hover:bg-sky-600 px-6 py-2 rounded-lg font-bold">Send</button>
+        <!-- Chat messages -->
+        <div id="chatBox" class="flex-1 overflow-y-auto my-4 space-y-2 pr-2">
+          <div class="message-left">Your music helped me so much 🥺</div>
+          <div class="message-right">Thank you! That means the world 💙</div>
+          <div class="message-left">Please don’t stop!</div>
+        </div>
+
+        <!-- Chat input -->
+        <div class="flex gap-3">
+          <input id="messageInput" type="text" placeholder="Type your reply..." class="flex-1 px-4 py-2 rounded-lg bg-white/10 text-white">
+          <button onclick="sendMessage()" class="bg-sky-500 hover:bg-sky-600 px-6 py-2 rounded-lg font-bold">Send</button>
+        </div>
+      </section>
     </div>
   </main>
 
@@ -48,13 +81,11 @@
     };
 
     firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
     const auth = firebase.auth();
 
     auth.onAuthStateChanged((user) => {
       if (user) {
         document.getElementById("authButtonContainer").innerHTML = '<button onclick="firebase.auth().signOut().then(() => window.location.href=\'login.html\')" class="hover:text-red-400 transition">Logout</button>';
-        listenForMessages(user.uid);
       } else {
         window.location.href = "login.html";
       }
@@ -63,30 +94,13 @@
     function sendMessage() {
       const input = document.getElementById("messageInput");
       const message = input.value.trim();
-      const user = firebase.auth().currentUser;
-      if (message && user) {
-        db.collection("messages").add({
-          text: message,
-          uid: user.uid,
-          displayName: user.displayName || "Anonymous",
-          timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        });
+      if (message) {
+        const msgElem = document.createElement("div");
+        msgElem.className = "message-right";
+        msgElem.innerText = message;
+        document.getElementById("chatBox").appendChild(msgElem);
         input.value = "";
       }
-    }
-
-    function listenForMessages(uid) {
-      db.collection("messages").orderBy("timestamp", "desc").limit(50).onSnapshot(snapshot => {
-        const chatBox = document.getElementById("chatBox");
-        chatBox.innerHTML = "";
-        snapshot.forEach(doc => {
-          const msg = doc.data();
-          const bubble = document.createElement("div");
-          bubble.className = "message-bubble";
-          bubble.innerHTML = `<strong>${msg.displayName}</strong><br>${msg.text}`;
-          chatBox.appendChild(bubble);
-        });
-      });
     }
   </script>
 </body>
