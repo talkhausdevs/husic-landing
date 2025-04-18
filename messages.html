@@ -15,8 +15,32 @@
     .chat-sidebar { background-color: #1e293b; padding: 1rem; overflow-y: auto; }
     .chat-main { background-color: #0f172a; display: flex; flex-direction: column; justify-content: space-between; padding: 1rem; }
     .chat-header { padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border-bottom: 1px solid #38bdf8; display: flex; justify-content: space-between; align-items: center; }
-    .message-left { background-color: #1e293b; padding: 0.75rem; border-radius: 1rem 1rem 1rem 0; margin-bottom: 0.5rem; max-width: 75%; }
-    .message-right { background: linear-gradient(to right, #0ea5e9, #38bdf8); color: white; padding: 0.75rem; border-radius: 1rem 1rem 0 1rem; margin-left: auto; margin-bottom: 0.5rem; max-width: 75%; }
+    .message-left, .message-right {
+      padding: 0.75rem;
+      border-radius: 1rem;
+      margin-bottom: 0.5rem;
+      max-width: 75%;
+    }
+    .message-left {
+      background-color: #1e293b;
+    }
+    .message-right {
+      background: linear-gradient(to right, #0ea5e9, #38bdf8);
+      color: white;
+      margin-left: auto;
+    }
+    .sender-name {
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+    }
+    .verified {
+      margin-left: 0.25rem;
+      font-size: 0.75rem;
+      color: #38bdf8;
+    }
   </style>
 </head>
 <body class="bg-black text-white">
@@ -34,36 +58,24 @@
   <main class="pt-36 px-6 max-w-6xl mx-auto">
     <h1 class="text-4xl font-black text-center bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-300 bg-clip-text text-transparent mb-8">📨 Direct Messages</h1>
     <div class="chat-container">
-      <!-- Left: Conversations (static for now) -->
       <aside class="chat-sidebar">
         <h2 class="text-white font-bold text-lg mb-4">Chats</h2>
-        <div class="space-y-4">
-          <button class="block w-full text-left px-4 py-2 bg-white/10 hover:bg-white/20 rounded">@loyalfan93</button>
-          <button class="block w-full text-left px-4 py-2 bg-white/10 hover:bg-white/20 rounded">@hypebeatz</button>
-          <button class="block w-full text-left px-4 py-2 bg-white/10 hover:bg-white/20 rounded">📣 HÜSIC</button>
-        </div>
+        <div id="chatList" class="space-y-4"></div>
       </aside>
 
-      <!-- Right: Active chat -->
       <section class="chat-main">
         <div class="chat-header">
           <div class="flex items-center gap-2">
-            <span class="text-white font-bold">@loyalfan93</span>
-            <span class="text-xs bg-sky-500 text-white px-2 py-1 rounded-full">Fan</span>
+            <span id="activeUser" class="text-white font-bold">Select a chat</span>
           </div>
           <button class="text-xs text-red-400 hover:underline">Block</button>
         </div>
 
-        <!-- Chat messages -->
-        <div id="chatBox" class="flex-1 overflow-y-auto my-4 space-y-2 pr-2">
-          <div class="message-left">Your music helped me so much 🥺</div>
-          <div class="message-right">Thank you! That means the world 💙</div>
-          <div class="message-left">Please don’t stop!</div>
-        </div>
+        <div id="chatBox" class="flex-1 overflow-y-auto my-4 space-y-2 pr-2"></div>
+        <div id="typingIndicator" class="text-sm italic text-gray-400 mb-2 hidden">typing...</div>
 
-        <!-- Chat input -->
         <div class="flex gap-3">
-          <input id="messageInput" type="text" placeholder="Type your reply..." class="flex-1 px-4 py-2 rounded-lg bg-white/10 text-white">
+          <input id="messageInput" type="text" placeholder="Type your reply..." class="flex-1 px-4 py-2 rounded-lg bg-white/10 text-white" oninput="showTyping()">
           <button onclick="sendMessage()" class="bg-sky-500 hover:bg-sky-600 px-6 py-2 rounded-lg font-bold">Send</button>
         </div>
       </section>
@@ -81,26 +93,85 @@
     };
 
     firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
     const auth = firebase.auth();
+
+    let currentUser = null;
+    let selectedUserId = null;
+    let typingTimeout = null;
+    const verifiedUsers = ["husic", "bijounicole"];
 
     auth.onAuthStateChanged((user) => {
       if (user) {
+        currentUser = user;
         document.getElementById("authButtonContainer").innerHTML = '<button onclick="firebase.auth().signOut().then(() => window.location.href=\'login.html\')" class="hover:text-red-400 transition">Logout</button>';
+        loadChatList();
       } else {
         window.location.href = "login.html";
       }
     });
 
+    function loadChatList() {
+      const users = ["loyalfan93", "hypebeatz", "husic"];
+      const list = document.getElementById("chatList");
+      users.forEach(uid => {
+        const btn = document.createElement("button");
+        btn.textContent = `@${uid}`;
+        btn.className = "block w-full text-left px-4 py-2 bg-white/10 hover:bg-white/20 rounded";
+        btn.onclick = () => selectChat(uid);
+        list.appendChild(btn);
+      });
+    }
+
+    function selectChat(uid) {
+      selectedUserId = uid;
+      document.getElementById("activeUser").textContent = `@${uid}`;
+      const convoId = [currentUser.uid, uid].sort().join("_");
+      db.collection("conversations").doc(convoId).collection("messages").orderBy("timestamp").onSnapshot(snapshot => {
+        const chatBox = document.getElementById("chatBox");
+        chatBox.innerHTML = "";
+        snapshot.forEach(doc => {
+          const msg = doc.data();
+          const div = document.createElement("div");
+          const nameDiv = document.createElement("div");
+
+          nameDiv.className = "sender-name";
+          nameDiv.innerHTML = `${msg.senderName || "Anon"}`;
+          if (verifiedUsers.includes(msg.senderName?.toLowerCase())) {
+            nameDiv.innerHTML += ' <span class="verified">✔️</span>';
+          }
+
+          div.className = msg.uid === currentUser.uid ? "message-right" : "message-left";
+          div.innerHTML = msg.text;
+          div.prepend(nameDiv);
+
+          chatBox.appendChild(div);
+        });
+      });
+    }
+
     function sendMessage() {
       const input = document.getElementById("messageInput");
       const message = input.value.trim();
-      if (message) {
-        const msgElem = document.createElement("div");
-        msgElem.className = "message-right";
-        msgElem.innerText = message;
-        document.getElementById("chatBox").appendChild(msgElem);
+      if (message && selectedUserId && currentUser) {
+        const convoId = [currentUser.uid, selectedUserId].sort().join("_");
+        db.collection("conversations").doc(convoId).collection("messages").add({
+          text: message,
+          uid: currentUser.uid,
+          senderName: currentUser.displayName || "Anonymous",
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
         input.value = "";
       }
+    }
+
+    function showTyping() {
+      const indicator = document.getElementById("typingIndicator");
+      indicator.classList.remove("hidden");
+      clearTimeout(typingTimeout);
+      typingTimeout = setTimeout(() => {
+        indicator.classList.add("hidden");
+      }, 1500);
     }
   </script>
 </body>
