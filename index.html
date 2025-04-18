@@ -9,8 +9,6 @@
   <style>
     body { font-family: 'Urbanist', sans-serif; }
     .shimmer-text {
-      position: relative;
-      display: inline-block;
       background: linear-gradient(90deg, #38bdf8, #0ea5e9, #38bdf8);
       background-size: 200% auto;
       -webkit-background-clip: text;
@@ -37,91 +35,23 @@
   </nav>
 
   <header class="h-screen flex flex-col items-center justify-center text-center px-6 bg-gradient-to-b from-black via-[#0b1d2b] to-black relative">
-    <h1 class="text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-blue-400 to-cyan-300 animate-pulse drop-shadow-md">
-      HÜSIC
-    </h1>
+    <h1 class="text-7xl md:text-8xl font-black shimmer-text">HÜSIC</h1>
     <p class="text-gray-300 text-xl mt-4">It Hits Different.</p>
     <p class="text-gray-400 max-w-2xl mx-auto mt-4">The boldest indie music platform for artists, fans, and creators. Upload music, build your brand, and distribute to the world — all in one place.</p>
-    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-      </svg>
-    </div>
     <div class="mt-10">
       <a href="signup.html" class="inline-block px-6 py-3 text-white font-semibold rounded-full bg-gradient-to-r from-sky-400 to-blue-500 shadow-lg hover:shadow-xl transition-all animate-pulse">
         Sign Up Now
       </a>
     </div>
-  <div class="mt-10">
-      <a href="signup.html" class="inline-block px-6 py-3 text-white font-semibold rounded-full bg-gradient-to-r from-sky-400 to-blue-500 shadow-lg hover:shadow-xl transition-all animate-pulse">
-        Sign Up Now
-      </a>
-    </div>
     <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
       <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
       </svg>
     </div>
-</header>
+  </header>
 
-<!-- What You Can Do -->
-<section class="px-6 max-w-6xl mx-auto py-20">
-  <h2 class="text-3xl font-bold text-white mb-8 text-center">💡 What You Can Do</h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="bg-white/10 p-6 rounded-xl">
-      <h3 class="text-lg font-semibold mb-2">🎧 Upload Music</h3>
-      <p class="text-sm text-gray-300">Distribute singles, albums, and mixtapes directly from your dashboard.</p>
-    </div>
-    <div class="bg-white/10 p-6 rounded-xl">
-      <h3 class="text-lg font-semibold mb-2">📊 Track Analytics</h3>
-      <p class="text-sm text-gray-300">Get real-time stats on streams, fans, and performance across platforms.</p>
-    </div>
-    <div class="bg-white/10 p-6 rounded-xl">
-      <h3 class="text-lg font-semibold mb-2">🌍 Build Your Brand</h3>
-      <p class="text-sm text-gray-300">Customize your artist page, share smart links, and grow your fanbase.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonials -->
-<section class="px-6 max-w-6xl mx-auto py-20">
-  <h2 class="text-3xl font-bold text-white mb-8 text-center">🗣️ What Artists Are Saying</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div class="bg-white/5 p-6 rounded-xl">
-      <p class="italic text-gray-300">“HÜSIC changed the game for me. No more gatekeepers — just vibes.”</p>
-      <p class="text-sm text-sky-400 mt-4">– Bijou Nicole</p>
-    </div>
-    <div class="bg-white/5 p-6 rounded-xl">
-      <p class="italic text-gray-300">“The upload process was smooth and fast. I had a track live in minutes.”</p>
-      <p class="text-sm text-sky-400 mt-4">– Rico Flame</p>
-    </div>
-  </div>
-</section>
-
-<!-- Newsletter -->
-<section class="px-6 max-w-4xl mx-auto py-20 text-center">
-  <h2 class="text-3xl font-bold text-white mb-4">📬 Stay in the Loop</h2>
-  <p class="text-sm text-gray-400 mb-6">Sign up for exclusive updates, artist spotlights, and early feature access.</p>
-  <form class="flex flex-col sm:flex-row gap-4 justify-center">
-    <input type="email" placeholder="you@email.com" class="px-4 py-3 rounded-lg bg-white/10 text-white w-full sm:w-2/3 focus:outline-none focus:ring-2 focus:ring-sky-500">
-    <button type="submit" class="px-6 py-3 rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 text-white font-bold hover:shadow-lg">Subscribe</button>
-  </form>
-</section>
-
-<!-- Footer -->
-<footer class="px-6 py-10 bg-black text-center text-sm text-gray-500">
-  <p>&copy; 2025 HÜSIC. All rights reserved.</p>
-  <div class="mt-4 flex justify-center space-x-6">
-    <a href="#" class="hover:text-sky-400">Instagram</a>
-    <a href="#" class="hover:text-sky-400">Twitter/X</a>
-    <a href="#" class="hover:text-sky-400">Contact</a>
-  </div>
-</footer>
-
-  <section class="px-6 max-w-6xl mx-auto py-16">
-    <div class="bg-gradient-to-r from-sky-600 to-cyan-400 rounded-xl p-6 mb-10">
-      <h2 class="text-2xl font-bold">💡 What You Can Do</h2>
-    </div>
+  <section class="px-6 max-w-6xl mx-auto py-20">
+    <h2 class="text-3xl font-bold text-white mb-8 text-center">💡 What You Can Do</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="bg-white/10 p-6 rounded-xl">
         <h3 class="text-lg font-semibold mb-2">🎧 Upload Music</h3>
@@ -138,79 +68,60 @@
     </div>
   </section>
 
-  <section class="px-6 max-w-6xl mx-auto py-16">
-    <div class="bg-gradient-to-r from-sky-600 to-cyan-400 rounded-xl p-6 mb-10">
-      <h2 class="text-2xl font-bold">💸 Pricing Plans</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-white/10 p-6 rounded-xl">
-        <h3 class="text-xl font-bold mb-2">Starter</h3>
-        <p class="text-sm text-gray-300 mb-1">$15 / month</p>
-        <p class="text-sm text-gray-400 mb-4">or $50 / year</p>
-        <ul class="text-sm space-y-2 text-gray-400">
-          <li>✔ Unlimited uploads</li>
-          <li>✘ No analytics</li>
-          <li>✘ No music video distribution</li>
-        </ul>
+  <section class="px-6 max-w-6xl mx-auto py-20">
+    <h2 class="text-3xl font-bold text-white mb-8 text-center">🗣️ What Artists Are Saying</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white/5 p-6 rounded-xl">
+        <p class="italic text-gray-300">“HÜSIC changed the game for me. No more gatekeepers — just vibes.”</p>
+        <p class="text-sm text-sky-400 mt-4">– Bijou Nicole</p>
       </div>
-      <div class="bg-white/10 p-6 rounded-xl">
-        <h3 class="text-xl font-bold mb-2">Pro</h3>
-        <p class="text-sm text-gray-300 mb-1">$5 / month</p>
-        <p class="text-sm text-gray-400 mb-4">or $10 / year</p>
-        <ul class="text-sm space-y-2 text-gray-400">
-          <li>✔ Unlimited uploads</li>
-          <li>✔ Analytics access</li>
-          <li>✔ Upload to Spotify, Apple Music</li>
-        </ul>
-      </div>
-      <div class="bg-white/10 p-6 rounded-xl">
-        <h3 class="text-xl font-bold mb-2">Premium</h3>
-        <p class="text-sm text-gray-300 mb-1">$20 / month</p>
-        <p class="text-sm text-gray-400 mb-4">or $70 / year</p>
-        <ul class="text-sm space-y-2 text-gray-400">
-          <li>✔ Everything in Pro</li>
-          <li>✔ Music video distribution</li>
-          <li>✔ Priority support</li>
-        </ul>
+      <div class="bg-white/5 p-6 rounded-xl">
+        <p class="italic text-gray-300">“The upload process was smooth and fast. I had a track live in minutes.”</p>
+        <p class="text-sm text-sky-400 mt-4">– Rico Flame</p>
       </div>
     </div>
   </section>
 
+  <section class="px-6 max-w-4xl mx-auto py-20 text-center">
+    <h2 class="text-3xl font-bold text-white mb-4">📬 Stay in the Loop</h2>
+    <p class="text-sm text-gray-400 mb-6">Sign up for exclusive updates, artist spotlights, and early feature access.</p>
+    <form class="flex flex-col sm:flex-row gap-4 justify-center">
+      <input type="email" placeholder="you@email.com" class="px-4 py-3 rounded-lg bg-white/10 text-white w-full sm:w-2/3 focus:outline-none focus:ring-2 focus:ring-sky-500">
+      <button type="submit" class="px-6 py-3 rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 text-white font-bold hover:shadow-lg">Subscribe</button>
+    </form>
+  </section>
+
   <section class="px-6 max-w-6xl mx-auto py-16">
-    <section class="px-6 max-w-6xl mx-auto py-16">
-  <div class="bg-sky-900/50 backdrop-blur-md border border-sky-500 rounded-xl p-6 mb-10">
-    <h2 class="text-2xl font-bold text-sky-300">👥 Meet the Founders</h2>
-    <p class="text-sm text-gray-300 mt-2 max-w-3xl">HÜSIC is led by a diverse and passionate trio who understand music, tech, and business. Together, they’re reshaping the music industry with tools built for the next generation of independent artists.</p>
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-    <div class="bg-white/5 p-6 rounded-xl">
-      <h3 class="font-bold text-lg">Roosevelt Wooden</h3>
-      <p class="text-sm text-gray-400">Creative Director • Founder</p>
-      <p class="text-xs text-gray-500 mt-2">Visionary artist & branding strategist leading the aesthetic and creator-first experience of HÜSIC.</p>
+    <div class="bg-sky-900/50 backdrop-blur-md border border-sky-500 rounded-xl p-6 mb-10">
+      <h2 class="text-2xl font-bold text-sky-300">👥 Meet the Founders</h2>
+      <p class="text-sm text-gray-300 mt-2 max-w-3xl">HÜSIC is led by a diverse and passionate trio who understand music, tech, and business. Together, they’re reshaping the music industry with tools built for the next generation of independent artists.</p>
     </div>
-    <div class="bg-white/5 p-6 rounded-xl">
-      <h3 class="font-bold text-lg">Ethan Burton</h3>
-      <p class="text-sm text-gray-400">Tech Lead • Co-Founder</p>
-      <p class="text-xs text-gray-500 mt-2">Web wizard & Firebase engineer bringing the platform to life with security and speed.</p>
-    </div>
-    <div class="bg-white/5 p-6 rounded-xl">
-      <h3 class="font-bold text-lg">Jason JFrancis</h3>
-      <p class="text-sm text-gray-400">Operations • Co-Founder</p>
-      <p class="text-xs text-gray-500 mt-2">Handles business ops, partnerships, and the bridge between music tech and industry deals.</p>
-    </div>
-  </div>
-</section>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
       <div class="bg-white/5 p-6 rounded-xl">
-        <img src="https://via.placeholder.com/100" class="rounded-full mx-auto mb-4" />
-        <h3 class="font-bold">Ethan Burton</h3>
-        <p class="text-sm text-gray-400">Tech Lead • Co-Founder</p>
+        <h3 class="font-bold text-lg">Roosevelt Wooden</h3>
+        <p class="text-sm text-gray-400">Creative Director • Founder</p>
+        <p class="text-xs text-gray-500 mt-2">Visionary artist & branding strategist leading the aesthetic and creator-first experience of HÜSIC.</p>
       </div>
       <div class="bg-white/5 p-6 rounded-xl">
-        <img src="https://via.placeholder.com/100" class="rounded-full mx-auto mb-4" />
-        <h3 class="font-bold">Jason JFrancis</h3>
+        <h3 class="font-bold text-lg">Ethan Burton</h3>
+        <p class="text-sm text-gray-400">Tech Lead • Co-Founder</p>
+        <p class="text-xs text-gray-500 mt-2">Web wizard & Firebase engineer bringing the platform to life with security and speed.</p>
+      </div>
+      <div class="bg-white/5 p-6 rounded-xl">
+        <h3 class="font-bold text-lg">Jason JFrancis</h3>
         <p class="text-sm text-gray-400">Operations • Co-Founder</p>
+        <p class="text-xs text-gray-500 mt-2">Handles business ops, partnerships, and the bridge between music tech and industry deals.</p>
       </div>
     </div>
   </section>
+
+  <footer class="px-6 py-10 bg-black text-center text-sm text-gray-500">
+    <p>&copy; 2025 HÜSIC. All rights reserved.</p>
+    <div class="mt-4 flex justify-center space-x-6">
+      <a href="#" class="hover:text-sky-400">Instagram</a>
+      <a href="#" class="hover:text-sky-400">Twitter/X</a>
+      <a href="#" class="hover:text-sky-400">Contact</a>
+    </div>
+  </footer>
 </body>
 </html>
