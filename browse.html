@@ -1,107 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Browse Music | HÜSIC</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Urbanist', sans-serif;
-      }
-    </style>
-  </head>
-  <body class="bg-black text-white">
-    <!-- Navbar -->
-    <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-80 z-50">
-      <div class="text-2xl font-black tracking-wide">HÜSIC</div>
-      <ul class="flex space-x-6 text-sm font-medium" id="navLinks">
-        <li><a href="index.html" class="hover:text-gray-400 transition">Home</a></li>
-        <li><a href="browse.html" class="text-gray-400">Browse</a></li>
-        <li><a href="upload.html" class="hover:text-gray-400 transition">Upload</a></li>
-        <li><a href="login.html" id="authLink" class="hover:text-gray-400 transition">Log In</a></li>
-      </ul>
-    </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Artists | HÜSIC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Urbanist', sans-serif; }
+  </style>
+</head>
+<body class="bg-black text-white">
+  <!-- NAV -->
+  <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50">
+    <a href="index.html"><img src="icon.png" alt="HÜSIC logo" class="h-10 w-auto" /></a>
+    <ul class="flex space-x-6 text-sm font-medium">
+      <li><a href="index.html" class="hover:text-gray-400 transition">Home</a></li>
+      <li><a href="browse.html" class="text-sky-400">Browse</a></li>
+      <li><a href="upload.html" class="hover:text-gray-400 transition">Upload</a></li>
+      <li><a href="login.html" id="authLink" class="hover:text-gray-400 transition">Log In</a></li>
+    </ul>
+  </nav>
 
-    <!-- Browse Page Content -->
-    <main class="pt-24 px-6">
-      <h1 class="text-4xl font-bold mb-6">Browse Music</h1>
+  <!-- Featured Section -->
+  <header class="pt-32 pb-12 text-center max-w-4xl mx-auto">
+    <h1 class="text-5xl font-black mb-2">Browse Artists</h1>
+    <p class="text-gray-400">Discover bold voices, fresh sounds, and rising creators.</p>
+  </header>
 
-      <!-- Trending Section -->
-      <section class="mb-12">
-        <h2 class="text-2xl font-semibold mb-4">🔥 Trending Songs</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Song 1</div>
-          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Song 2</div>
-          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Song 3</div>
-          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Song 4</div>
-        </div>
-      </section>
+  <!-- Artist Grid -->
+  <section class="px-6 pb-20 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <!-- Artist Card -->
+      <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
+        <img src="https://via.placeholder.com/300" alt="Artist Cover" class="rounded-xl mb-4">
+        <h3 class="text-lg font-bold">Bijou Nicole</h3>
+        <p class="text-sm text-gray-300 mb-3">Alternative Soul</p>
+        <a href="#" class="text-sky-400 text-sm underline">View Profile</a>
+      </div>
 
-      <!-- Featured Artists Section -->
-      <section class="mb-12">
-        <h2 class="text-2xl font-semibold mb-4">🌟 Featured Artists</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Artist 1</div>
-          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Artist 2</div>
-          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Artist 3</div>
-          <div class="bg-white/10 p-4 rounded-xl hover:bg-white/20 transition">Artist 4</div>
-        </div>
-      </section>
+      <!-- Repeat artist cards as needed -->
+      <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
+        <img src="https://via.placeholder.com/300" alt="Artist Cover" class="rounded-xl mb-4">
+        <h3 class="text-lg font-bold">Rico Flame</h3>
+        <p class="text-sm text-gray-300 mb-3">Trap Gospel</p>
+        <a href="#" class="text-sky-400 text-sm underline">View Profile</a>
+      </div>
 
-      <!-- Genres Section -->
-      <section class="mb-20">
-        <h2 class="text-2xl font-semibold mb-4">🔎 Explore by Genre</h2>
-        <div class="flex flex-wrap gap-4">
-          <span class="bg-white/10 px-4 py-2 rounded-full hover:bg-white/20 transition cursor-pointer">Hip-Hop</span>
-          <span class="bg-white/10 px-4 py-2 rounded-full hover:bg-white/20 transition cursor-pointer">R&B</span>
-          <span class="bg-white/10 px-4 py-2 rounded-full hover:bg-white/20 transition cursor-pointer">Pop</span>
-          <span class="bg-white/10 px-4 py-2 rounded-full hover:bg-white/20 transition cursor-pointer">Gospel</span>
-        </div>
-      </section>
-    </main>
+      <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
+        <img src="https://via.placeholder.com/300" alt="Artist Cover" class="rounded-xl mb-4">
+        <h3 class="text-lg font-bold">Zay Wonder</h3>
+        <p class="text-sm text-gray-300 mb-3">Lo-fi Hip Hop</p>
+        <a href="#" class="text-sky-400 text-sm underline">View Profile</a>
+      </div>
 
-    <!-- Firebase Auth Guard + Login/Logout Navbar Logic -->
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-      import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+      <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
+        <img src="https://via.placeholder.com/300" alt="Artist Cover" class="rounded-xl mb-4">
+        <h3 class="text-lg font-bold">Mama Hope</h3>
+        <p class="text-sm text-gray-300 mb-3">Neo-Soul</p>
+        <a href="#" class="text-sky-400 text-sm underline">View Profile</a>
+      </div>
+    </div>
+  </section>
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyBgFzQHL_q02mGF083TkLREpFyU0dE3Hcs",
-        authDomain: "husic-6705e.firebaseapp.com",
-        projectId: "husic-6705e",
-        storageBucket: "husic-6705e.appspot.com",
-        messagingSenderId: "311183107893",
-        appId: "1:311183107893:web:c62720409ce8669b64ce7c"
-      };
-
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const authLink = document.getElementById("authLink");
-
-        onAuthStateChanged(auth, (user) => {
-          if (user) {
-            authLink.textContent = "Log Out";
-            authLink.href = "#";
-            authLink.addEventListener("click", async (e) => {
-              e.preventDefault();
-              await signOut(auth);
-              alert("Logged out.");
-              window.location.href = "index.html";
-            });
-          } else {
-            authLink.textContent = "Log In";
-            authLink.href = "login.html";
-            alert("You must be logged in to access this page.");
-            window.location.href = "login.html";
-          }
-        });
-      });
-    </script>
-  </body>
+  <script type="module" src="auth.js"></script>
+</body>
 </html>
