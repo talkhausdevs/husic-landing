@@ -1,67 +1,62 @@
-# 🎧 HÜSIC
+# 🎧 HÜSIC – It Hits Different.
 
-**HÜSIC. It Hits Different.**  
-A sleek, modern music platform for today’s listeners and tomorrow’s legends. This is not your mama’s streaming service — this is HÜSIC.
-
----
-
-## 🚀 Live Demo
-
-(https://talkhausdevs.github.io/husic-landing)  
-
+HÜSIC is a modern music platform built for independent artists who want power, polish, and full control over their music. Inspired by platforms like Spotify, Apple Music, and DistroKid — but with more sauce 😏
 
 ---
 
-## 🖤 What is HÜSIC?
+## 🌐 Live Site
 
-HÜSIC is a bold new music streaming concept designed to bring listeners closer to the culture. Built with a dark, stylish aesthetic and focused on simplicity, it’s the perfect blend of luxury and realness.
-
----
-
-## ✨ Features (Planned)
-
-- 🎵 Stream music instantly
-- 📁 Artist upload portals
-- 🔥 Trending songs section
-- 💾 Playlist creation
-- 🔒 Artist dashboards
-- 🎤 Lyrics support
-- 🛠 Admin backend
+[https://yourusername.github.io/husic-landing](https://yourusername.github.io/husic-landing)
 
 ---
 
-## 🛠 Tech Stack
+## 🔥 Features
 
-- HTML5  
-- Tailwind CSS  
-- Google Fonts (Urbanist)  
-- Hosted via GitHub Pages / Netlify
+### 🎛️ Artist Dashboard
+- Track streams, followers, and monthly earnings
+- Upload music videos, schedule releases, and edit your profile
+- View recent tracks and analytics in real-time
 
----
+### 🎧 Upload Page
+- Submit tracks, artwork, and metadata
+- Optional distribution with Vydia (coming soon)
+- Add collaborators, ISRC codes, monetization types, remix kits, and more
 
-## 📁 How to Use
+### 📊 Browse Page
+- Explore trending artists, playlists, podcasts, and music videos
+- Spotify-style interface with custom charts and gradients
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/talkhausdevs/husic-landing.git
-   ```
-
-2. Open `index.html` in your browser or deploy to GitHub Pages or Netlify.
-
----
-
-## 🧠 Author
-
-**Roosevelt Demarkus Wooden & Ethan Scott Burton**  
-📸 [@husic.haus](https://instagram.com/yourhusicpage)  
-🎤 Founders of The HÜSIC Movement
+### 🔒 Subscription System
+- Unlock exclusive features by subscribing (Starter, Pro, Premium)
+- Firebase Auth + Stripe payments integration (WIP)
 
 ---
 
-## ⚠️ License
+## 🛠️ Built With
 
-This project is licensed for educational and demo purposes. All branding, visuals, and future expansion of HÜSIC are the intellectual property of Roosevelt Demarkus Wooden & Ethan Scott Burton.
+- HTML5 + TailwindCSS
+- Firebase (Auth, Hosting, Firestore)
+- Stripe (Payments)
+- GitHub Pages (Static Hosting)
 
 ---
 
-> _“Your music. Your moment. Your HÜSIC.”_
+## 📁 File Structure
+
+```
+├── index.html           # Home page
+├── upload.html          # Upload music
+├── browse.html          # Discover content
+├── dashboard.html       # Artist portal
+├── style.css            # Optional CSS overrides
+├── README.md            # You’re reading this 😉
+```
+
+---
+
+## 🚀 Coming Soon
+
+- Fan engagement tools (comments, feedback)
+- Verified artist pages
+- Smart links & social preview generator
+- Built-in music distributor partnership
