@@ -13,18 +13,16 @@
     </style>
   </head>
   <body class="bg-black text-white">
-    <!-- Navbar -->
     <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-80 z-50">
       <div class="text-2xl font-black tracking-wide">HÜSIC</div>
-      <ul class="flex space-x-6 text-sm font-medium">
+      <ul class="flex space-x-6 text-sm font-medium" id="navLinks">
         <li><a href="index.html" class="hover:text-gray-400 transition">Home</a></li>
         <li><a href="browse.html" class="hover:text-gray-400 transition">Browse</a></li>
         <li><a href="upload.html" class="hover:text-gray-400 transition">Upload</a></li>
-        <li><a href="login.html" class="text-gray-400">Log In</a></li>
+        <li><a href="login.html" id="authLink" class="text-gray-400">Log In</a></li>
       </ul>
     </nav>
 
-    <!-- Login Page Content -->
     <main class="pt-24 px-6 max-w-md mx-auto">
       <h1 class="text-4xl font-bold mb-6 text-center">Welcome Back</h1>
       <form class="space-y-6 bg-white/5 p-6 rounded-xl">
@@ -67,11 +65,12 @@
         try {
           await signInWithEmailAndPassword(auth, email, password);
           alert("Logged in successfully!");
-          window.location.href = "index.html";
+          window.location.href = "browse.html";
         } catch (error) {
           alert("Login failed: " + error.message);
         }
       });
     </script>
+    <script type="module" src="auth.js"></script>
   </body>
 </html>
