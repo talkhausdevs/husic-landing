@@ -5,55 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Browse Artists | HÜSIC</title>
-  <script src="https://cdn.tailwindcss.com">
-let visibleArtists = [];
-let offset = 0;
-const pageSize = 4;
-
-function loadMore() {
-  const next = artists.slice(offset, offset + pageSize);
-  visibleArtists = visibleArtists.concat(next);
-  offset += pageSize;
-  renderArtists(visibleArtists);
-}
-
-function 
-renderArtists(artistArray) {
-  container.innerHTML = artistArray.map(artist => {
-    const slug = artist.name.toLowerCase().replace(/\s+/g, "-");
-    return `
-      <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
-        <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
-        <h3 class="text-lg font-bold">${artist.name}</h3>
-        <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-        <a href="profile.html?artist=${slug}" class="text-sky-400 text-sm underline">View Profile</a>
-      </div>
-    `;
-  }).join('');
-}
-
-  container.innerHTML = artistArray.map(artist => `
-    <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
-      <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
-      <h3 class="text-lg font-bold">${artist.name}</h3>
-      <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-      <a href="${artist.profile}" class="text-sky-400 text-sm underline">View Profile</a>
-    </div>
-  `).join('');
-}
-
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const windowHeight = window.innerHeight;
-  const docHeight = document.body.offsetHeight;
-
-  if (scrollTop + windowHeight >= docHeight - 100) {
-    loadMore();
-  }
-});
-
-filterGenre("All");
-</script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Urbanist', sans-serif; }
@@ -71,191 +23,94 @@ filterGenre("All");
     </ul>
   </nav>
 
-  <!-- Featured Section -->
+  <!-- Header -->
   <header class="pt-32 pb-12 text-center max-w-4xl mx-auto">
     <h1 class="text-5xl font-black mb-2">Browse Artists</h1>
     <p class="text-gray-400">Discover bold voices, fresh sounds, and rising creators.</p>
   </header>
 
-  <!-- Artist Grid -->
-  
-<section class="px-6 pb-20 max-w-6xl mx-auto">
   <!-- Genre Filters -->
-  <div class="flex flex-wrap gap-3 mb-8 justify-center text-sm font-medium">
-    <button onclick="filterGenre('All')" class="px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-full transition">All</button>
-    <button onclick="filterGenre('Alternative Soul')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Alternative Soul</button>
-    <button onclick="filterGenre('Trap Gospel')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Trap Gospel</button>
-    <button onclick="filterGenre('Lo-fi Hip Hop')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Lo-fi Hip Hop</button>
-    <button onclick="filterGenre('Neo-Soul')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Neo-Soul</button>
-  </div>
+  <section class="px-6 pb-20 max-w-6xl mx-auto">
+    <div class="flex flex-wrap gap-3 mb-8 justify-center text-sm font-medium">
+      <button onclick="filterGenre('All')" class="px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-full transition">All</button>
+      <button onclick="filterGenre('Alternative Soul')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Alternative Soul</button>
+      <button onclick="filterGenre('Trap Gospel')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Trap Gospel</button>
+      <button onclick="filterGenre('Lo-fi Hip Hop')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Lo-fi Hip Hop</button>
+      <button onclick="filterGenre('Neo-Soul')" class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full">Neo-Soul</button>
+    </div>
 
-    <div id="artistGrid" class="transition-opacity duration-500 ease-in-out" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
+    <div id="artistGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 transition-opacity duration-500 ease-in-out"></div>
   </section>
 
-  <script type="module" src="auth.js">
-let visibleArtists = [];
-let offset = 0;
-const pageSize = 4;
-
-function loadMore() {
-  const next = artists.slice(offset, offset + pageSize);
-  visibleArtists = visibleArtists.concat(next);
-  offset += pageSize;
-  renderArtists(visibleArtists);
-}
-
-function 
-renderArtists(artistArray) {
-  container.innerHTML = artistArray.map(artist => {
-    const slug = artist.name.toLowerCase().replace(/\s+/g, "-");
-    return `
-      <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
-        <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
-        <h3 class="text-lg font-bold">${artist.name}</h3>
-        <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-        <a href="profile.html?artist=${slug}" class="text-sky-400 text-sm underline">View Profile</a>
-      </div>
-    `;
-  }).join('');
-}
-
-  container.innerHTML = artistArray.map(artist => `
-    <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
-      <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
-      <h3 class="text-lg font-bold">${artist.name}</h3>
-      <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-      <a href="${artist.profile}" class="text-sky-400 text-sm underline">View Profile</a>
-    </div>
-  `).join('');
-}
-
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const windowHeight = window.innerHeight;
-  const docHeight = document.body.offsetHeight;
-
-  if (scrollTop + windowHeight >= docHeight - 100) {
-    loadMore();
-  }
-});
-
-filterGenre("All");
-</script>
   <script>
     const artists = [
       {
         name: "Bijou Nicole",
         genre: "Alternative Soul",
-        image: "https://via.placeholder.com/300",
-        profile: "#"
+        image: "https://via.placeholder.com/300"
       },
       {
         name: "Rico Flame",
         genre: "Trap Gospel",
-        image: "https://via.placeholder.com/300",
-        profile: "#"
+        image: "https://via.placeholder.com/300"
       },
       {
         name: "Zay Wonder",
         genre: "Lo-fi Hip Hop",
-        image: "https://via.placeholder.com/300",
-        profile: "#"
+        image: "https://via.placeholder.com/300"
       },
       {
         name: "Mama Hope",
         genre: "Neo-Soul",
-        image: "https://via.placeholder.com/300",
-        profile: "#"
+        image: "https://via.placeholder.com/300"
       }
     ];
 
-    
-const container = document.getElementById("artistGrid");
+    const container = document.getElementById("artistGrid");
+    let visibleArtists = [];
+    let offset = 0;
+    const pageSize = 4;
 
-function renderArtists(filtered) {
-  container.innerHTML = filtered.map(artist => `
-    <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
-      <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
-      <h3 class="text-lg font-bold">${artist.name}</h3>
-      <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-      <a href="${artist.profile}" class="text-sky-400 text-sm underline">View Profile</a>
-    </div>
-  `).join('');
-}
+    function renderArtists(artistArray) {
+      container.innerHTML = artistArray.map(artist => {
+        const slug = artist.name.toLowerCase().replace(/\s+/g, "-");
+        return `
+          <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
+            <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
+            <h3 class="text-lg font-bold">${artist.name}</h3>
+            <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
+            <a href="profile.html?artist=${slug}" class="text-sky-400 text-sm underline">View Profile</a>
+          </div>
+        `;
+      }).join('');
+    }
 
-function filterGenre(genre) {
-  if (genre === "All") {
-    renderArtists(artists);
-  } else {
-    const filtered = artists.filter(artist => artist.genre === genre);
-    
-  container.classList.add('opacity-0');
-  setTimeout(() => {
-    container.classList.remove('opacity-0');
-    renderArtists(filtered);
-  }, 100);
+    function loadMore() {
+      const next = filteredData.slice(offset, offset + pageSize);
+      visibleArtists = visibleArtists.concat(next);
+      offset += pageSize;
+      renderArtists(visibleArtists);
+    }
 
-  }
-}
+    let filteredData = artists;
+    function filterGenre(genre) {
+      offset = 0;
+      visibleArtists = [];
+      if (genre === "All") {
+        filteredData = artists;
+      } else {
+        filteredData = artists.filter(artist => artist.genre === genre);
+      }
+      loadMore();
+    }
 
-renderArtists(artists);
+    window.addEventListener("scroll", () => {
+      if (window.scrollY + window.innerHeight >= document.body.offsetHeight - 100) {
+        loadMore();
+      }
+    });
 
-    container.innerHTML = artists.map(artist => `
-      <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
-        <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
-        <h3 class="text-lg font-bold">${artist.name}</h3>
-        <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-        <a href="${artist.profile}" class="text-sky-400 text-sm underline">View Profile</a>
-      </div>
-    `).join('');
-  
-let visibleArtists = [];
-let offset = 0;
-const pageSize = 4;
-
-function loadMore() {
-  const next = artists.slice(offset, offset + pageSize);
-  visibleArtists = visibleArtists.concat(next);
-  offset += pageSize;
-  renderArtists(visibleArtists);
-}
-
-function 
-renderArtists(artistArray) {
-  container.innerHTML = artistArray.map(artist => {
-    const slug = artist.name.toLowerCase().replace(/\s+/g, "-");
-    return `
-      <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
-        <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
-        <h3 class="text-lg font-bold">${artist.name}</h3>
-        <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-        <a href="profile.html?artist=${slug}" class="text-sky-400 text-sm underline">View Profile</a>
-      </div>
-    `;
-  }).join('');
-}
-
-  container.innerHTML = artistArray.map(artist => `
-    <div class="bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
-      <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
-      <h3 class="text-lg font-bold">${artist.name}</h3>
-      <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-      <a href="${artist.profile}" class="text-sky-400 text-sm underline">View Profile</a>
-    </div>
-  `).join('');
-}
-
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const windowHeight = window.innerHeight;
-  const docHeight = document.body.offsetHeight;
-
-  if (scrollTop + windowHeight >= docHeight - 100) {
-    loadMore();
-  }
-});
-
-filterGenre("All");
-</script>
+    filterGenre("All");
+  </script>
 </body>
 </html>
