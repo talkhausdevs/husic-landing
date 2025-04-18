@@ -7,8 +7,8 @@ A sleek, modern music platform for today’s listeners and tomorrow’s legends.
 
 ## 🚀 Live Demo
 
-[https://yourusername.github.io/husic-landing](https://yourusername.github.io/husic-landing)  
-*(Update this once your GitHub Pages is live!)*
+(https://talkhausdevs.github.io/husic-landing)  
+
 
 ---
 
@@ -39,18 +39,11 @@ HÜSIC is a bold new music streaming concept designed to bring listeners closer 
 
 ---
 
-## 📸 Screenshots
-
-![HÜSIC Homepage](preview.png)  
-*Clean hero section with logo, tagline, and call-to-actions*
-
----
-
 ## 📁 How to Use
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yourusername/husic-landing.git
+   git clone https://github.com/talkhausdevs/husic-landing.git
    ```
 
 2. Open `index.html` in your browser or deploy to GitHub Pages or Netlify.
@@ -59,15 +52,15 @@ HÜSIC is a bold new music streaming concept designed to bring listeners closer 
 
 ## 🧠 Author
 
-**Roosevelt Demarkus Wooden**  
+**Roosevelt Demarkus Wooden & Ethan Scott Burton**  
 📸 [@husic.haus](https://instagram.com/yourhusicpage)  
-🎤 Founder of The HÜSIC Movement
+🎤 Founders of The HÜSIC Movement
 
 ---
 
 ## ⚠️ License
 
-This project is licensed for educational and demo purposes. All branding, visuals, and future expansion of HÜSIC are the intellectual property of Roosevelt Demarkus Wooden.
+This project is licensed for educational and demo purposes. All branding, visuals, and future expansion of HÜSIC are the intellectual property of Roosevelt Demarkus Wooden & Ethan Scott Burton.
 
 ---
 
