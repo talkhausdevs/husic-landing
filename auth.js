@@ -1,3 +1,4 @@
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
@@ -15,22 +16,43 @@ const auth = getAuth(app);
 
 document.addEventListener("DOMContentLoaded", () => {
   const authLink = document.getElementById("authLink");
+  const browseLinks = document.querySelectorAll("a[href='browse.html']");
 
   onAuthStateChanged(auth, (user) => {
-    if (!authLink) return;
+    if (authLink) {
+      if (user) {
+        authLink.textContent = "Log Out";
+        authLink.href = "#";
+        authLink.addEventListener("click", async (e) => {
+          e.preventDefault();
+          await signOut(auth);
+          alert("Logged out.");
+          window.location.href = "index.html";
+        });
+      } else {
+        authLink.textContent = "Log In";
+        authLink.href = "login.html";
+      }
+    }
 
-    if (user) {
-      authLink.textContent = "Log Out";
-      authLink.href = "#";
-      authLink.addEventListener("click", async (e) => {
-        e.preventDefault();
-        await signOut(auth);
-        alert("Logged out.");
-        window.location.href = "index.html";
+    // Browse button redirect logic
+    if (browseLinks.length > 0) {
+      browseLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+          if (!user) {
+            e.preventDefault();
+            alert("Please log in to continue.");
+            window.location.href = "login.html";
+          } else {
+            const subscribed = localStorage.getItem("subscribed") === "true"; // mock for now
+            if (!subscribed) {
+              e.preventDefault();
+              alert("You need an active plan to browse music.");
+              window.location.href = "pricing.html";
+            }
+          }
+        });
       });
-    } else {
-      authLink.textContent = "Log In";
-      authLink.href = "login.html";
     }
   });
 });
