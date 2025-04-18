@@ -1,184 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Browse | HÜSIC</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Urbanist', sans-serif; }
-  </style>
+  <style>body { font-family: 'Urbanist', sans-serif; }</style>
 </head>
 <body class="bg-gradient-to-b from-black via-[#0c0c1c] to-black text-white">
-  <!-- NAV -->
   <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50">
     <a href="index.html"><img src="icon.png" alt="HÜSIC logo" class="h-10 w-auto" /></a>
-    <ul class="flex space-x-6 text-sm font-medium">
+    <ul class="flex space-x-6 text-sm font-medium" id="navLinks">
       <li><a href="index.html" class="hover:text-gray-400 transition">Home</a></li>
       <li><a href="browse.html" class="text-sky-400">Browse</a></li>
       <li><a href="upload.html" class="hover:text-gray-400 transition">Upload</a></li>
     </ul>
   </nav>
-
-  <!-- Hero Section -->
   <header class="pt-36 pb-16 px-6 text-center max-w-4xl mx-auto">
     <h1 class="text-5xl font-black bg-gradient-to-r from-sky-500 via-blue-400 to-cyan-300 bg-clip-text text-transparent mb-4">Discover the Next Wave</h1>
     <p class="text-gray-400 text-lg">Explore rising artists, curated playlists, music videos & more — only on HÜSIC.</p>
   </header>
-
   <main class="px-6 max-w-6xl mx-auto space-y-24">
-    <!-- Featured Artists Scroll -->
-    <section>
-      <div class="bg-gradient-to-r from-sky-600 to-blue-400 p-3 rounded-xl mb-4">
-        <h2 class="text-xl font-bold">🎤 Featured Artists</h2>
+    <div class="bg-gradient-to-r from-sky-600 to-blue-400 p-3 rounded-xl mb-4">
+      <h2 class="text-xl font-bold">🎤 Featured Artists</h2>
+    </div>
+    <div class="flex gap-6 overflow-x-auto pb-2 scrollbar-hide">
+      <div class="min-w-[220px] bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
+        <img src="https://via.placeholder.com/300" alt="Artist" class="rounded-xl mb-4">
+        <h3 class="text-lg font-bold">Bijou Nicole</h3>
+        <p class="text-sm text-gray-300">Alternative Soul</p>
+        <a href="profile.html?artist=bijou-nicole" class="text-sky-400 text-sm underline">View Profile</a>
       </div>
-      <div class="flex gap-6 overflow-x-auto pb-2 scrollbar-hide">
-        <div class="min-w-[220px] bg-white/5 p-4 rounded-2xl shadow-lg hover:bg-white/10 transition">
-          <img src="https://via.placeholder.com/300" alt="Artist" class="rounded-xl mb-4">
-          <h3 class="text-lg font-bold">Bijou Nicole</h3>
-          <p class="text-sm text-gray-300">Alternative Soul</p>
-          <a href="profile.html?artist=bijou-nicole" class="text-sky-400 text-sm underline">View Profile</a>
-        </div>
-        <!-- More artist cards here -->
-      </div>
-    </section>
-
-    <!-- Trending Videos -->
-    <section>
-      <div class="bg-gradient-to-r from-blue-500 to-cyan-400 p-3 rounded-xl mb-4">
-        <h2 class="text-xl font-bold">🎬 Trending Music Videos</h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/kXYiU_JCYtU" frameborder="0" allowfullscreen></iframe>
-        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/lWA2pjMjpBs" frameborder="0" allowfullscreen></iframe>
-        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/ScMzIvxBSi4" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <!-- Curated Playlists -->
-    <section>
-      <div class="bg-gradient-to-r from-cyan-500 to-sky-300 p-3 rounded-xl mb-4">
-        <h2 class="text-xl font-bold">🎧 Curated Playlists</h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="bg-white/5 rounded-xl p-4 hover:bg-white/10 transition">
-          <img src="https://via.placeholder.com/300" class="rounded-lg mb-4">
-          <h3 class="font-semibold text-lg">Late Night Vibes</h3>
-          <p class="text-sm text-gray-300">Lo-fi, chillwave, and slow jams</p>
-        </div>
-        <div class="bg-white/5 rounded-xl p-4 hover:bg-white/10 transition">
-          <img src="https://via.placeholder.com/300" class="rounded-lg mb-4">
-          <h3 class="font-semibold text-lg">Sunday Praise</h3>
-          <p class="text-sm text-gray-300">Trap Gospel and worship bops</p>
-        </div>
-        <div class="bg-white/5 rounded-xl p-4 hover:bg-white/10 transition">
-          <img src="https://via.placeholder.com/300" class="rounded-lg mb-4">
-          <h3 class="font-semibold text-lg">Up Next 🔥</h3>
-          <p class="text-sm text-gray-300">Breakout artists to watch</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Top Podcasts Section -->
-    <section>
-      <div class="bg-gradient-to-r from-sky-400 to-blue-300 p-3 rounded-xl mb-4">
-        <h2 class="text-xl font-bold">🎙️ HÜSIC Top Podcasts</h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="bg-white/5 p-4 rounded-2xl">
-          <img src="https://via.placeholder.com/300x300" class="rounded-lg mb-4">
-          <h3 class="font-bold">Coast 2 Coast</h3>
-          <p class="text-gray-400 text-sm">Real convos, raw creatives.</p>
-        </div>
-        <div class="bg-white/5 p-4 rounded-2xl">
-          <img src="https://via.placeholder.com/300x300" class="rounded-lg mb-4">
-          <h3 class="font-bold">The Studio Sitdown</h3>
-          <p class="text-gray-400 text-sm">Producer & artist interviews.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Charts -->
-    <section>
-      <div class="bg-gradient-to-r from-blue-600 to-cyan-400 p-3 rounded-xl mb-4">
-        <h2 class="text-xl font-bold">📈 Top 10 This Week</h2>
-      </div>
-      <div class="bg-white/5 p-6 rounded-xl shadow-md">
-        <table class="w-full text-sm">
-          <thead class="text-gray-400">
-            <tr>
-              <th class="text-left">#</th>
-              <th class="text-left">Track</th>
-              <th class="text-left">Artist</th>
-              <th class="text-left">Streams</th>
-            </tr>
-          </thead>
-          <tbody class="text-white">
-            <tr class="border-t border-white/10">
-              <td>1</td>
-              <td>Glow Up Season</td>
-              <td>Bijou Nicole</td>
-              <td>153,217</td>
-            </tr>
-            <tr class="border-t border-white/10">
-              <td>2</td>
-              <td>Saints Run It Up</td>
-              <td>Rico Flame</td>
-              <td>120,984</td>
-            </tr>
-            <tr class="border-t border-white/10">
-              <td>3</td>
-              <td>No Doubt</td>
-              <td>Zay Wonder</td>
-              <td>103,522</td>
-            </tr>
-            <tr class="border-t border-white/10">
-              <td>4</td>
-              <td>Crimson Love</td>
-              <td>Bijou Nicole</td>
-              <td>94,100</td>
-            </tr>
-            <tr class="border-t border-white/10">
-              <td>5</td>
-              <td>Heaven Hotline</td>
-              <td>Rico Flame</td>
-              <td>89,349</td>
-            </tr>
-            <tr class="border-t border-white/10">
-              <td>6</td>
-              <td>Real Talk</td>
-              <td>Bijou Nicole</td>
-              <td>87,211</td>
-            </tr>
-            <tr class="border-t border-white/10">
-              <td>7</td>
-              <td>Faith Over Flex</td>
-              <td>Zay Wonder</td>
-              <td>80,559</td>
-            </tr>
-            <tr class="border-t border-white/10">
-              <td>8</td>
-              <td>Still Here</td>
-              <td>Mama Hope</td>
-              <td>76,002</td>
-            </tr>
-            <tr class="border-t border-white/10">
-              <td>9</td>
-              <td>Elevation</td>
-              <td>Bijou Nicole</td>
-              <td>73,498</td>
-            </tr>
-            <tr class="border-t border-white/10">
-              <td>10</td>
-              <td>Testify Again</td>
-              <td>Rico Flame</td>
-              <td>70,302</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+    </div>
   </main>
 </body>
 </html>
