@@ -23,7 +23,7 @@ function renderArtists(artistArray) {
       <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
       <h3 class="text-lg font-bold">${artist.name}</h3>
       <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-      <a href="${artist.profile}" class="text-sky-400 text-sm underline">View Profile</a>
+      <a href="profile.html?artist=${artist.name.toLowerCase().replace(/\s+/g, "-")}" class="text-sky-400 text-sm underline">View Profile</a>
     </div>
   `).join('');
 }
@@ -96,7 +96,7 @@ function renderArtists(artistArray) {
       <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
       <h3 class="text-lg font-bold">${artist.name}</h3>
       <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-      <a href="${artist.profile}" class="text-sky-400 text-sm underline">View Profile</a>
+      <a href="profile.html?artist=${artist.name.toLowerCase().replace(/\s+/g, "-")}" class="text-sky-400 text-sm underline">View Profile</a>
     </div>
   `).join('');
 }
@@ -119,25 +119,25 @@ filterGenre("All");
         name: "Bijou Nicole",
         genre: "Alternative Soul",
         image: "https://via.placeholder.com/300",
-        profile: "#"
+        profile: "profile.html?artist=" + artist.name.toLowerCase().replace(/\s+/g, "-")
       },
       {
         name: "Rico Flame",
         genre: "Trap Gospel",
         image: "https://via.placeholder.com/300",
-        profile: "#"
+        profile: "profile.html?artist=" + artist.name.toLowerCase().replace(/\s+/g, "-")
       },
       {
         name: "Zay Wonder",
         genre: "Lo-fi Hip Hop",
         image: "https://via.placeholder.com/300",
-        profile: "#"
+        profile: "profile.html?artist=" + artist.name.toLowerCase().replace(/\s+/g, "-")
       },
       {
         name: "Mama Hope",
         genre: "Neo-Soul",
         image: "https://via.placeholder.com/300",
-        profile: "#"
+        profile: "profile.html?artist=" + artist.name.toLowerCase().replace(/\s+/g, "-")
       }
     ];
 
@@ -150,7 +150,7 @@ function renderArtists(filtered) {
       <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
       <h3 class="text-lg font-bold">${artist.name}</h3>
       <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-      <a href="${artist.profile}" class="text-sky-400 text-sm underline">View Profile</a>
+      <a href="profile.html?artist=${artist.name.toLowerCase().replace(/\s+/g, "-")}" class="text-sky-400 text-sm underline">View Profile</a>
     </div>
   `).join('');
 }
@@ -177,7 +177,7 @@ renderArtists(artists);
         <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
         <h3 class="text-lg font-bold">${artist.name}</h3>
         <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-        <a href="${artist.profile}" class="text-sky-400 text-sm underline">View Profile</a>
+        <a href="profile.html?artist=${artist.name.toLowerCase().replace(/\s+/g, "-")}" class="text-sky-400 text-sm underline">View Profile</a>
       </div>
     `).join('');
   
@@ -198,7 +198,7 @@ function renderArtists(artistArray) {
       <img src="${artist.image}" alt="${artist.name}" class="rounded-xl mb-4 w-full h-auto">
       <h3 class="text-lg font-bold">${artist.name}</h3>
       <p class="text-sm text-gray-300 mb-3">${artist.genre}</p>
-      <a href="${artist.profile}" class="text-sky-400 text-sm underline">View Profile</a>
+      <a href="profile.html?artist=${artist.name.toLowerCase().replace(/\s+/g, "-")}" class="text-sky-400 text-sm underline">View Profile</a>
     </div>
   `).join('');
 }
