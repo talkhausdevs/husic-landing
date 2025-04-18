@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Upload | HÜSIC</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet">
-  <style>body { font-family: 'Urbanist', sans-serif; }</style>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Urbanist', sans-serif; }
+    input[type="file"]::file-selector-button {
+      background-color: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+    }
+  </style>
 </head>
 <body class="bg-black text-white">
   <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50">
@@ -17,15 +26,168 @@
       <li><a href="upload.html" class="text-sky-400">Upload</a></li>
     </ul>
   </nav>
-  <main class="pt-32 px-6 max-w-3xl mx-auto text-center">
-    <h1 class="text-4xl font-black mb-4">Upload Your Music</h1>
-    <p class="text-gray-400 mb-10">Submit your track to be featured on HÜSIC. Make sure you're on a valid subscription plan.</p>
-    <form class="bg-white/5 p-6 rounded-2xl shadow-lg text-left space-y-6">
+
+  <main class="pt-32 px-6 max-w-4xl mx-auto">
+    <h1 class="text-4xl font-black mb-6 text-center">Upload Your Track 🎶</h1>
+    <form class="space-y-10">
+
+      <!-- Track Info -->
       <div>
-        <label class="block text-sm font-bold mb-2">Track Title</label>
-        <input type="text" placeholder="Enter your song title" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-sky-500">
+        <label class="block text-sm font-bold mb-1">Track Title</label>
+        <input type="text" placeholder="Enter your track title" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white" />
+      </div>
+
+      <!-- Drag & Drop Audio Upload -->
+      <div>
+        <h2 class="text-xl font-bold mb-4">🎧 Audio File</h2>
+        <div id="dropZone" class="w-full p-6 bg-white/10 rounded-lg border-2 border-dashed border-white/20 text-center cursor-pointer hover:border-sky-500 transition">
+          <p class="text-sm text-gray-400">Drag & drop your audio file here or click to browse</p>
+          <input type="file" id="audioInput" accept="audio/*" class="hidden" />
+        </div>
+        <audio id="audioPreview" controls class="mt-4 hidden w-full rounded-lg"></audio>
+      </div>
+
+      <!-- Lyrics, Explicit, Record Label -->
+      <div>
+        <label class="block text-sm font-bold mb-2">Lyrics</label>
+        <textarea rows="4" placeholder="Paste your lyrics here..." class="w-full px-4 py-2 rounded-lg bg-white/10 text-white"></textarea>
+
+        <label class="inline-flex items-center my-4 block">
+          <input type="checkbox" class="accent-sky-500 mr-2"> Contains explicit content
+        </label>
+
+        <label class="block text-sm font-bold mb-2">Record Label</label>
+        <input type="text" placeholder="(Optional) Add your label name" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white">
+      </div>
+
+      <!-- Collabs, Mood, Album, Fan Msg -->
+      <div>
+        <label class="block text-sm font-bold mb-2">Featured Artist(s)</label>
+        <input type="text" placeholder="Add featured artists (optional)" class="w-full px-4 py-2 mb-4 rounded-lg bg-white/10 text-white" />
+
+        <label class="block text-sm font-bold mb-2">Track Vibe / Mood Tags</label>
+        <select multiple class="w-full px-4 py-2 mb-4 rounded-lg bg-white/10 text-white">
+          <option>Chill</option>
+          <option>Hype</option>
+          <option>Love Song</option>
+          <option>Party</option>
+          <option>Spiritual</option>
+        </select>
+
+        <label class="block text-sm font-bold mb-2">Upload Type</label>
+        <select id="uploadType" onchange="toggleAlbumTitle()" class="w-full px-4 py-2 mb-4 rounded-lg bg-white/10 text-white">
+          <option value="single">Single</option>
+          <option value="album">Album Track</option>
+        </select>
+        <div id="albumTitleField" class="hidden">
+          <label class="block text-sm font-bold mb-2">Album Title</label>
+          <input type="text" placeholder="Enter album title..." class="w-full px-4 py-2 mb-4 rounded-lg bg-white/10 text-white">
+        </div>
+
+        <p class="text-xs text-sky-300 italic mb-4">Your ISRC code will be auto-generated upon approval.</p>
+
+        <label class="block text-sm font-bold mb-2">Fan Message</label>
+        <textarea rows="2" placeholder="This one’s for the dreamers 💙" class="w-full px-4 py-2 mb-4 rounded-lg bg-white/10 text-white"></textarea>
+
+        <label class="block text-sm font-bold mb-2">Monetization</label>
+        <select class="w-full px-4 py-2 mb-4 rounded-lg bg-white/10 text-white">
+          <option>Free to Stream</option>
+          <option>Pay to Download</option>
+          <option>Royalty Sharing</option>
+        </select>
+      </div>
+
+      <!-- Region & Copyright -->
+      <div>
+        <label class="block text-sm font-bold mb-2">Primary Language</label>
+        <select class="w-full px-4 py-2 mb-4 rounded-lg bg-white/10 text-white">
+          <option>English</option>
+          <option>Spanish</option>
+          <option>French</option>
+          <option>German</option>
+          <option>Other</option>
+        </select>
+
+        <label class="block text-sm font-bold mb-2">Target Regions</label>
+        <select multiple class="w-full px-4 py-2 mb-4 rounded-lg bg-white/10 text-white">
+          <option>North America</option>
+          <option>Europe</option>
+          <option>Asia</option>
+          <option>South America</option>
+          <option>Africa</option>
+          <option>Worldwide</option>
+        </select>
+
+        <label class="block text-sm font-bold mb-2">Copyright Holder Name</label>
+        <input type="text" placeholder="Your legal or stage name" class="w-full px-4 py-2 mb-4 rounded-lg bg-white/10 text-white">
+
+        <p class="text-xs text-gray-400 italic mb-4">By uploading, you confirm you own the rights to this track or have proper licensing.</p>
+      </div>
+
+      <!-- Smart Link -->
+      <div>
+        <h2 class="text-xl font-bold mb-4">🌐 Smart Link Preview</h2>
+        <p class="text-sm text-gray-400 mb-2">Once published, your HÜSIC Smart Link will look like this:</p>
+        <div class="bg-white/10 px-4 py-3 rounded-lg text-sm text-gray-300">https://husic.io/track/your-song-title</div>
+      </div>
+
+      <!-- Uploads: Video, Stems, Canvas -->
+      <div>
+        <label class="block text-sm font-bold mb-2">🎬 Upload Music Video or YouTube Link</label>
+        <input type="text" placeholder="https://youtube.com/your-video" class="w-full px-4 py-2 rounded-lg bg-white/10 text-white mb-2">
+        <input type="file" accept="video/*" class="w-full mb-4 rounded-lg bg-white/10 text-white">
+
+        <label class="block text-sm font-bold mb-2">📼 Canvas / Loop Visual</label>
+        <input type="file" accept="video/*" class="w-full mb-4 rounded-lg bg-white/10 text-white">
+
+        <label class="block text-sm font-bold mb-2">📁 Project or Mixtape</label>
+        <input type="text" placeholder="Optional project or mixtape name" class="w-full px-4 py-2 mb-4 rounded-lg bg-white/10 text-white">
+
+        <label class="block text-sm font-bold mb-2">🔁 Remix or Stems (ZIP)</label>
+        <input type="file" accept=".zip" class="w-full mb-4 rounded-lg bg-white/10 text-white">
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex gap-4">
+        <button type="button" class="w-1/2 bg-white/10 hover:bg-white/20 text-white font-bold py-3 rounded-lg transition">🔐 Save as Draft</button>
+        <button type="submit" class="w-1/2 bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 rounded-lg transition">🚀 Publish Track</button>
       </div>
     </form>
   </main>
+
+  <script>
+    const dropZone = document.getElementById('dropZone');
+    const audioInput = document.getElementById('audioInput');
+    const audioPreview = document.getElementById('audioPreview');
+
+    dropZone.addEventListener('click', () => audioInput.click());
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('border-sky-500');
+    });
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('border-sky-500');
+    });
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('border-sky-500');
+      const file = e.dataTransfer.files[0];
+      if (file) handleAudio(file);
+    });
+    audioInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) handleAudio(file);
+    });
+    function handleAudio(file) {
+      audioPreview.src = URL.createObjectURL(file);
+      audioPreview.classList.remove('hidden');
+    }
+
+    function toggleAlbumTitle() {
+      const type = document.getElementById('uploadType').value;
+      const albumField = document.getElementById('albumTitleField');
+      albumField.classList.toggle('hidden', type !== 'album');
+    }
+  </script>
 </body>
 </html>
