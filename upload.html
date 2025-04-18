@@ -41,7 +41,10 @@
       </div>
       <div>
         <h2 class="text-xl font-bold mb-4">🎧 Upload Your Track</h2>
-        <input type="file" accept="audio/*" onchange="previewAudio(event)" class="w-full file:bg-sky-500 file:text-white file:rounded-lg file:px-4 file:py-2 file:border-0 bg-white/10 text-white">
+        <div id="dropZone" class="w-full p-6 bg-white/10 rounded-lg border-2 border-dashed border-white/20 text-center cursor-pointer hover:border-sky-500 transition">
+          <p class="text-sm text-gray-400">Drag & drop your audio file here or click to browse</p>
+          <input type="file" id="audioInput" accept="audio/*" class="hidden">
+        </div>
         <audio id="audioPreview" class="mt-4 w-full hidden" controls></audio>
       </div>
       <div>
@@ -91,6 +94,42 @@
   </main>
 
   <script>
+    const dropZone = document.getElementById('dropZone');
+    const audioInput = document.getElementById('audioInput');
+    const audioPreview = document.getElementById('audioPreview');
+
+    dropZone.addEventListener('click', () => audioInput.click());
+
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('border-sky-500');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('border-sky-500');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('border-sky-500');
+      const file = e.dataTransfer.files[0];
+      if (file) {
+        handleAudio(file);
+      }
+    });
+
+    audioInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        handleAudio(file);
+      }
+    });
+
+    function handleAudio(file) {
+      const audio = document.getElementById('audioPreview');
+      audio.src = URL.createObjectURL(file);
+      audio.classList.remove('hidden');
+    }
     function previewArt(e) {
       const art = document.getElementById('artPreview');
       art.src = URL.createObjectURL(e.target.files[0]);
