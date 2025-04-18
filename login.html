@@ -65,7 +65,8 @@
         try {
           await signInWithEmailAndPassword(auth, email, password);
           alert("Logged in successfully!");
-          window.location.href = "browse.html";
+          const subscribed = localStorage.getItem("subscribed") === "true";
+          window.location.href = subscribed ? "browse.html" : "pricing.html";
         } catch (error) {
           alert("Login failed: " + error.message);
         }
