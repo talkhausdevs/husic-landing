@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Browse | HÜSIC</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     body { font-family: 'Urbanist', sans-serif; }
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-b from-black via-[#0c0c1c] to-black text-white">
@@ -22,12 +27,111 @@
     </ul>
   </nav>
 
-  <header class="pt-36 pb-16 px-6 text-center max-w-4xl mx-auto">
-    <h1 class="text-5xl font-black bg-gradient-to-r from-sky-500 via-blue-400 to-cyan-300 bg-clip-text text-transparent mb-4">Discover the Next Wave</h1>
-    <p class="text-gray-400 text-lg">Explore rising artists, curated playlists, music videos & more — only on HÜSIC.</p>
-  </header>
+  <main class="pt-36 px-6 max-w-7xl mx-auto space-y-24">
+    <header class="text-center">
+      <h1 class="text-5xl font-black bg-gradient-to-r from-sky-500 via-blue-400 to-cyan-300 bg-clip-text text-transparent mb-4">Discover the Next Wave</h1>
+      <p class="text-gray-400 text-lg">Explore rising artists, curated playlists, videos & more — only on HÜSIC.</p>
+    </header>
 
-  <!-- Other page content would go here -->
+    <!-- Search & Genre Filter -->
+    <section>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <input type="text" placeholder="Search artists, playlists, or genres..." class="w-full md:w-1/2 px-4 py-2 rounded-lg bg-white/10 text-white">
+        <select class="px-4 py-2 bg-white/10 text-white rounded-lg">
+          <option>All Genres</option>
+          <option>Hip-Hop</option>
+          <option>R&B</option>
+          <option>Gospel</option>
+          <option>Pop</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Featured Artists -->
+    <section>
+      <h2 class="section-title text-sky-300">🎤 Featured Artists</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white/5 p-4 rounded-xl">
+          <h3 class="font-bold text-lg">Bijou Nicole <span class="text-sky-400">✔</span></h3>
+          <p class="text-sm text-gray-300">Alternative Soul</p>
+          <a href="#" class="text-sky-400 text-sm underline">View Profile</a>
+        </div>
+        <div class="bg-white/5 p-4 rounded-xl">
+          <h3 class="font-bold text-lg">Rico Flame <span class="text-sky-400">✔</span></h3>
+          <p class="text-sm text-gray-300">Trap Gospel</p>
+          <a href="#" class="text-sky-400 text-sm underline">View Profile</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music Videos -->
+    <section>
+      <h2 class="section-title text-blue-400">🎬 Trending Music Videos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/kXYiU_JCYtU" frameborder="0" allowfullscreen></iframe>
+        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/lWA2pjMjpBs" frameborder="0" allowfullscreen></iframe>
+        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/ScMzIvxBSi4" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- Curated Playlists -->
+    <section>
+      <h2 class="section-title text-cyan-400">🎧 Curated Playlists</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-white/5 p-4 rounded-xl">
+          <h3 class="font-semibold text-lg">Lo-Fi Lounge</h3>
+          <p class="text-sm text-gray-400">Late night vibes and mellow beats</p>
+        </div>
+        <div class="bg-white/5 p-4 rounded-xl">
+          <h3 class="font-semibold text-lg">Sunday Uplift</h3>
+          <p class="text-sm text-gray-400">Faith-filled fire for your spirit</p>
+        </div>
+        <div class="bg-white/5 p-4 rounded-xl">
+          <h3 class="font-semibold text-lg">Glow Up Season</h3>
+          <p class="text-sm text-gray-400">Self-love and level-up anthems</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Podcasts -->
+    <section>
+      <h2 class="section-title text-sky-300">🎙️ Top Podcasts</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-white/5 p-4 rounded-xl">
+          <h3 class="font-bold">Coast 2 Coast</h3>
+          <p class="text-sm text-gray-300">Real convos, raw creatives</p>
+        </div>
+        <div class="bg-white/5 p-4 rounded-xl">
+          <h3 class="font-bold">Industry Confessions</h3>
+          <p class="text-sm text-gray-300">Hot takes & behind the scenes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Charts -->
+    <section>
+      <h2 class="section-title text-blue-300">📈 HÜSIC Top 10</h2>
+      <div class="bg-white/10 p-6 rounded-xl">
+        <table class="w-full text-sm">
+          <thead class="text-gray-400">
+            <tr>
+              <th class="text-left">#</th>
+              <th class="text-left">Track</th>
+              <th class="text-left">Artist</th>
+              <th class="text-left">Streams</th>
+            </tr>
+          </thead>
+          <tbody class="text-white">
+            <tr class="border-t border-white/10"><td>1</td><td>Glow Up Season</td><td>Bijou Nicole</td><td>153,217</td></tr>
+            <tr class="border-t border-white/10"><td>2</td><td>Saints Run It Up</td><td>Rico Flame</td><td>120,984</td></tr>
+            <tr class="border-t border-white/10"><td>3</td><td>No Doubt</td><td>Zay Wonder</td><td>103,522</td></tr>
+            <tr class="border-t border-white/10"><td>4</td><td>Crimson Love</td><td>Bijou Nicole</td><td>94,100</td></tr>
+            <tr class="border-t border-white/10"><td>5</td><td>Heaven Hotline</td><td>Rico Flame</td><td>89,349</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
 
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
   <script>
