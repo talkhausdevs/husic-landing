@@ -42,7 +42,7 @@
           <li>❌ No analytics</li>
           <li>❌ No distribution to Spotify/Apple</li>
         </ul>
-        <a href="#" class="bg-white text-black px-4 py-2 rounded-full font-semibold">Choose Starter</a>
+        <button onclick="selectPlan('Starter')" class="bg-white text-black px-4 py-2 rounded-full font-semibold">Choose Starter</button>
       </div>
 
       <!-- Pro -->
@@ -54,7 +54,7 @@
           <li>✅ Access to analytics</li>
           <li>✅ Upload audio to Spotify, Apple, HÜSIC + more</li>
         </ul>
-        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full font-semibold">Choose Pro</a>
+        <button onclick="selectPlan('Pro')" class="bg-purple-600 text-white px-4 py-2 rounded-full font-semibold">Choose Pro</button>
       </div>
 
       <!-- Premium -->
@@ -66,7 +66,7 @@
           <li>✅ Upload music videos to YouTube, Apple Music</li>
           <li>✅ Priority distribution</li>
         </ul>
-        <a href="#" class="bg-white text-black px-4 py-2 rounded-full font-semibold">Choose Premium</a>
+        <button onclick="selectPlan('Premium')" class="bg-white text-black px-4 py-2 rounded-full font-semibold">Choose Premium</button>
       </div>
     </div>
   </main>
@@ -96,5 +96,22 @@
       monthlyBtn.classList.add("bg-gray-700", "text-white");
     });
   </script>
+
+<script>
+  let currentType = "monthly";
+  document.getElementById("monthlyBtn").addEventListener("click", () => {
+    currentType = "monthly";
+  });
+  document.getElementById("yearlyBtn").addEventListener("click", () => {
+    currentType = "yearly";
+  });
+
+  function selectPlan(plan) {
+    localStorage.setItem("selectedPlan", plan);
+    localStorage.setItem("selectedType", currentType);
+    window.location.href = "checkout.html";
+  }
+</script>
 </body>
+
 </html>
