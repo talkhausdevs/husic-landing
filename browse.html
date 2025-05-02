@@ -3,142 +3,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Browse | HÜSIC</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet" />
   <style>
     body { font-family: 'Urbanist', sans-serif; }
     .section-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+      background: linear-gradient(to right, #38bdf8, #0ea5e9);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   </style>
 </head>
-<body class="bg-gradient-to-b from-black via-[#0c0c1c] to-black text-white">
+<body class="bg-black text-white">
   <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50">
     <a href="index.html"><img src="icon.png" alt="HÜSIC logo" class="h-10 w-auto" /></a>
     <ul class="flex space-x-6 text-sm font-medium" id="navLinks">
       <li><a href="index.html" class="hover:text-gray-400 transition">Home</a></li>
-      <li><a href="browse.html" class="text-sky-400">Browse</a></li>
+      <li><a href="browse.html" class="hover:text-gray-400 transition text-sky-400">Browse</a></li>
       <li><a href="upload.html" class="hover:text-gray-400 transition">Upload</a></li>
-      <li id="dashboardButton"></li>
-      <li id="authButtonContainer"></li>
+      <li><a href="dashboard.html" class="hover:text-gray-400 transition">Dashboard</a></li>
+      <li><a href="login.html" class="hover:text-gray-400 transition">Login</a></li>
     </ul>
   </nav>
 
-  <header class="pt-36 pb-16 px-6 text-center max-w-4xl mx-auto">
-    <h1 class="text-5xl font-black bg-gradient-to-r from-sky-500 via-blue-400 to-cyan-300 bg-clip-text text-transparent mb-4">Discover the Next Wave</h1>
-    <p class="text-gray-400 text-lg">Explore rising artists, curated playlists, music videos & more — only on HÜSIC.</p>
-  </header>
-
-  <main class="px-6 max-w-7xl mx-auto space-y-24">
-
-    <!-- Featured Artists -->
+  <main class="pt-36 px-6 max-w-7xl mx-auto space-y-24">
     <section>
-      <h2 class="section-title text-sky-300">🎤 Featured Artists</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="bg-white/5 p-4 rounded-xl">
-          <h3 class="font-bold text-lg">Bijou Nicole <span class="text-sky-400">✔</span></h3>
-          <p class="text-sm text-gray-300">Alternative Soul</p>
-          <a href="artist.html" class="text-sky-400 text-sm underline">View Profile</a>
+      <h1 class="text-4xl font-black section-title mb-6">🔥 Trending Artists</h1>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="bg-white/5 p-4 rounded-xl text-center">
+          <img src="bijou.jpg" class="w-24 h-24 mx-auto rounded-full mb-3" />
+          <h3 class="text-white font-bold">Bijou Nicole</h3>
+          <p class="text-sm text-gray-400">Alternative Soul</p>
+          <a href="artist.html" class="text-sm text-sky-400 hover:underline">View Profile</a>
         </div>
-        <div class="bg-white/5 p-4 rounded-xl">
-          <h3 class="font-bold text-lg">Rico Flame <span class="text-sky-400">✔</span></h3>
-          <p class="text-sm text-gray-300">Trap Gospel</p>
-          <a href="artist.html" class="text-sky-400 text-sm underline">View Profile</a>
+        <div class="bg-white/5 p-4 rounded-xl text-center">
+          <img src="glamrock.jpg" class="w-24 h-24 mx-auto rounded-full mb-3" />
+          <h3 class="text-white font-bold">GlamRockBecky</h3>
+          <p class="text-sm text-gray-400">Glam Rock</p>
+          <a href="artist.html" class="text-sm text-sky-400 hover:underline">View Profile</a>
         </div>
       </div>
     </section>
 
-    <!-- Music Videos -->
     <section>
-      <h2 class="section-title text-blue-400">🎬 Trending Music Videos</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/kXYiU_JCYtU" frameborder="0" allowfullscreen></iframe>
-        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/lWA2pjMjpBs" frameborder="0" allowfullscreen></iframe>
-        <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/ScMzIvxBSi4" frameborder="0" allowfullscreen></iframe>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-bold section-title">🎧 Curated Playlists</h2>
+        <a href="playlist-builder.html" class="text-sky-400 hover:underline text-sm">+ Create Playlist</a>
       </div>
-    </section>
-
-    <!-- Curated Playlists -->
-    <section>
-      <div class="flex justify-between items-center">
-        <h2 class="section-title text-cyan-400">🎧 Curated Playlists</h2>
-        <a href="playlist.html" class="text-sm text-sky-400 underline hover:text-sky-300">+ Create Playlist</a>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-white/5 p-4 rounded-xl">
-          <h3 class="font-semibold text-lg">Lo-Fi Lounge</h3>
-          <p class="text-sm text-gray-400">Late night vibes and mellow beats</p>
+          <h3 class="text-lg font-bold mb-2">Breakup Recovery</h3>
+          <p class="text-sm text-gray-400">Softie-core tracks for healing</p>
         </div>
         <div class="bg-white/5 p-4 rounded-xl">
-          <h3 class="font-semibold text-lg">Sunday Uplift</h3>
-          <p class="text-sm text-gray-400">Faith-filled fire for your spirit</p>
+          <h3 class="text-lg font-bold mb-2">Friday Feels</h3>
+          <p class="text-sm text-gray-400">Weekend-ready energy 💃</p>
         </div>
         <div class="bg-white/5 p-4 rounded-xl">
-          <h3 class="font-semibold text-lg">Glow Up Season</h3>
-          <p class="text-sm text-gray-400">Self-love and level-up anthems</p>
+          <h3 class="text-lg font-bold mb-2">HÜSIC Rising</h3>
+          <p class="text-sm text-gray-400">New artists, same vibes 🔥</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Top Podcasts -->
-    <section>
-      <h2 class="section-title text-sky-300">🎙️ Top Podcasts</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="bg-white/5 p-4 rounded-xl">
-          <h3 class="font-bold">Coast 2 Coast</h3>
-          <p class="text-sm text-gray-300">Real convos, raw creatives</p>
-        </div>
-        <div class="bg-white/5 p-4 rounded-xl">
-          <h3 class="font-bold">Industry Confessions</h3>
-          <p class="text-sm text-gray-300">Hot takes & behind the scenes</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Top Charts -->
-    <section>
-      <h2 class="section-title text-blue-300">📈 HÜSIC Top 10</h2>
-      <div class="bg-white/10 p-6 rounded-xl">
-        <table class="w-full text-sm">
-          <thead class="text-gray-400">
-            <tr>
-              <th class="text-left">#</th>
-              <th class="text-left">Track</th>
-              <th class="text-left">Artist</th>
-              <th class="text-left">Streams</th>
-            </tr>
-          </thead>
-          <tbody class="text-white">
-            <tr class="border-t border-white/10"><td>1</td><td>Glow Up Season</td><td>Bijou Nicole</td><td>153,217</td></tr>
-            <tr class="border-t border-white/10"><td>2</td><td>Saints Run It Up</td><td>Rico Flame</td><td>120,984</td></tr>
-            <tr class="border-t border-white/10"><td>3</td><td>No Doubt</td><td>Zay Wonder</td><td>103,522</td></tr>
-            <tr class="border-t border-white/10"><td>4</td><td>Crimson Love</td><td>Bijou Nicole</td><td>94,100</td></tr>
-            <tr class="border-t border-white/10"><td>5</td><td>Heaven Hotline</td><td>Rico Flame</td><td>89,349</td></tr>
-          </tbody>
-        </table>
       </div>
     </section>
   </main>
-
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const authButtonContainer = document.getElementById('authButtonContainer');
-      const dashboardButton = document.getElementById('dashboardButton');
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          authButtonContainer.innerHTML = '<button onclick="firebase.auth().signOut().then(() => window.location.href=\'login.html\')" class="hover:text-red-400 transition">Logout</button>';
-          dashboardButton.innerHTML = '<a href="dashboard.html" class="hover:text-gray-400 transition">Dashboard</a>';
-        } else {
-          authButtonContainer.innerHTML = '<a href="login.html" class="hover:text-gray-400 transition">Login</a>';
-          dashboardButton.innerHTML = '';
-        }
-      });
-    });
-  </script>
 </body>
 </html>
