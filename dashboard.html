@@ -2,86 +2,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard | HÜSIC</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     body { font-family: 'Urbanist', sans-serif; }
-    .neon-box { border: 1px solid #38bdf8; background: rgba(255, 255, 255, 0.03); box-shadow: 0 0 12px #38bdf8; }
-    .neon-btn {
-      background: linear-gradient(to right, #0ea5e9, #38bdf8);
-      box-shadow: 0 0 8px #38bdf8, 0 0 20px #0ea5e9;
-    }
   </style>
 </head>
 <body class="bg-black text-white">
   <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50">
-    <a href="index.html"><img src="icon.png" alt="HÜSIC logo" class="h-10 w-auto" /></a>
-    <ul class="flex space-x-6 text-sm font-medium" id="navLinks">
+    <a href="index.html"><img src="icon.png" alt="HÜSIC logo" class="h-10 w-auto"/></a>
+    <ul class="flex space-x-6 text-sm font-medium">
       <li><a href="index.html" class="hover:text-gray-400 transition">Home</a></li>
       <li><a href="browse.html" class="hover:text-gray-400 transition">Browse</a></li>
       <li><a href="upload.html" class="hover:text-gray-400 transition">Upload</a></li>
-      <li><a href="settings.html" class="hover:text-gray-400 transition">⚙️ Settings</a></li>
-      <li id="authButtonContainer"></li>
+      <li><a href="dashboard.html" class="text-sky-400">Dashboard</a></li>
+      <li><a href="login.html" class="hover:text-gray-400 transition">Logout</a></li>
     </ul>
   </nav>
 
-  <main class="pt-36 px-6 max-w-7xl mx-auto space-y-20">
-    <section>
-      <h2 class="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-300 bg-clip-text text-transparent">Your Artist Profile</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="neon-box p-6 rounded-xl">
-          <label class="font-bold">Change Profile Picture</label>
-          <input type="file" class="block mt-2 text-sm text-gray-300 mb-4">
-          <label class="font-bold">Display Name</label>
-          <input type="text" value="Bijou Nicole" class="w-full mt-2 mb-4 px-4 py-2 rounded bg-white/10 text-white">
-          <label class="font-bold">Bio</label>
-          <textarea rows="3" class="w-full mt-2 mb-4 px-4 py-2 rounded bg-white/10 text-white">Alternative Soul from LA</textarea>
-          <label class="font-bold">Badge Color</label>
-          <select class="w-full mt-2 px-4 py-2 rounded bg-white/10 text-white">
-            <option selected>Sky Blue</option>
-            <option>Neon Pink</option>
-            <option>Gold</option>
-          </select>
-          <button class="neon-btn mt-6 px-6 py-2 rounded text-white font-bold w-full">Save Artist Profile</button>
-        </div>
+  <main class="pt-28 px-6 max-w-6xl mx-auto space-y-16">
+    <header>
+      <h1 class="text-4xl font-black mb-2">🎛️ Artist Dashboard</h1>
+      <p class="text-gray-400 text-sm">Manage your profile, music, and track performance.</p>
+    </header>
 
-        <div class="space-y-6">
-          <div class="neon-box p-6 rounded-xl">
-            <h3 class="font-bold text-lg mb-2">📈 Stats</h3>
-            <p>Monthly Listeners: <span class="font-bold">32,718</span></p>
-            <p>Total Streams: <span class="font-bold">614,000</span></p>
-            <p>Top City: <span class="text-sky-400">Atlanta, GA</span></p>
-            <p>Top Track: <span class="text-sky-400">Glow Up Season</span></p>
-          </div>
-
-          <div class="neon-box p-6 rounded-xl">
-            <h3 class="font-bold text-lg mb-2">💰 Revenue</h3>
-            <p>Total Earned: <span class="font-bold text-green-400">$1,432.12</span></p>
-            <p>Next Payout: <span class="text-gray-300">May 1, 2025</span></p>
-            <button class="neon-btn mt-4 px-6 py-2 rounded text-white font-bold w-full">Withdraw</button>
-          </div>
-        </div>
+    <section class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white/5 p-6 rounded-lg">
+        <h3 class="text-xl font-bold text-sky-400 mb-2">Total Streams</h3>
+        <p class="text-3xl font-black">612,384</p>
       </div>
+      <div class="bg-white/5 p-6 rounded-lg">
+        <h3 class="text-xl font-bold text-sky-400 mb-2">Monthly Listeners</h3>
+        <p class="text-3xl font-black">34,790</p>
+      </div>
+      <div class="bg-white/5 p-6 rounded-lg">
+        <h3 class="text-xl font-bold text-sky-400 mb-2">Total Earnings</h3>
+        <p class="text-3xl font-black">$3,204.19</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-4">🖊️ Edit Artist Profile</h2>
+      <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <input type="text" placeholder="Artist Name" class="bg-white/10 px-4 py-2 rounded text-white placeholder-gray-400"/>
+        <input type="text" placeholder="Genre" class="bg-white/10 px-4 py-2 rounded text-white placeholder-gray-400"/>
+        <input type="text" placeholder="Bio" class="col-span-full bg-white/10 px-4 py-2 rounded text-white placeholder-gray-400"/>
+        <button type="submit" class="col-span-full bg-sky-500 hover:bg-sky-600 text-white py-2 px-4 rounded font-bold">Save Changes</button>
+      </form>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-4">💰 Distribution Add-On</h2>
+      <p class="text-sm text-gray-400 mb-2">Want your music on Spotify, Apple Music, Tidal, and more?</p>
+      <button class="bg-pink-600 hover:bg-pink-700 text-white py-2 px-4 rounded-full font-bold">Apply for Distribution</button>
     </section>
   </main>
 
-  <a href="messages.html" class="fixed bottom-6 right-6 bg-sky-500 text-white px-4 py-3 rounded-full shadow-lg neon-btn hover:bg-sky-400 z-50">📨 Messages</a>
-
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const authButtonContainer = document.getElementById('authButtonContainer');
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          authButtonContainer.innerHTML = '<button onclick="firebase.auth().signOut().then(() => window.location.href=\'login.html\')" class="hover:text-red-400 transition">Logout</button>';
-        } else {
-          window.location.href = "login.html";
-        }
-      });
-    });
-  </script>
+  <a href="chat.html" class="fixed bottom-6 right-6 bg-sky-500 hover:bg-sky-600 text-white p-4 rounded-full shadow-lg animate-pulse" title="Messages">
+    💬
+  </a>
 </body>
 </html>
