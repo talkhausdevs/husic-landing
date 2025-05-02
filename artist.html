@@ -18,8 +18,8 @@
       <li><a href="index.html" class="hover:text-gray-400 transition">Home</a></li>
       <li><a href="browse.html" class="hover:text-gray-400 transition">Browse</a></li>
       <li><a href="upload.html" class="hover:text-gray-400 transition">Upload</a></li>
-      <li id="dashboardButton"></li>
-      <li id="authButtonContainer"></li>
+      <li><a href="dashboard.html" class="hover:text-gray-400 transition">Dashboard</a></li>
+      <li><a href="login.html" class="hover:text-gray-400 transition">Login</a></li>
     </ul>
   </nav>
 
@@ -73,22 +73,5 @@
       </div>
     </section>
   </main>
-
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const authButtonContainer = document.getElementById('authButtonContainer');
-      const dashboardButton = document.getElementById('dashboardButton');
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          authButtonContainer.innerHTML = '<button onclick="firebase.auth().signOut().then(() => window.location.href=\'login.html\')" class="hover:text-red-400 transition">Logout</button>';
-          dashboardButton.innerHTML = '<a href="dashboard.html" class="hover:text-gray-400 transition">Dashboard</a>';
-        } else {
-          authButtonContainer.innerHTML = '<a href="login.html" class="hover:text-gray-400 transition">Login</a>';
-          dashboardButton.innerHTML = '';
-        }
-      });
-    });
-  </script>
 </body>
 </html>
