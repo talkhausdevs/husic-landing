@@ -12,6 +12,12 @@
 </head>
 
 <body class="bg-black text-white">
+<script>
+  if (!localStorage.getItem("userLoggedIn")) {
+    window.location.href = "login.html";
+  }
+</script>
+
   <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50">
     <a href="index.html"><img src="icon.png" alt="HÜSIC logo" class="h-10 w-auto"/></a>
     <ul class="flex space-x-6 text-sm font-medium">
@@ -33,5 +39,18 @@
     <!-- Artist cards and genres would follow here as before -->
     <div class="mt-10 text-gray-400">✨ Artists will be listed here ✨</div>
   </main>
+
+<script>
+  const auth = localStorage.getItem("userLoggedIn");
+  const authBtn = document.getElementById("authButton");
+  if (auth && authBtn) {
+    authBtn.textContent = "Logout";
+    authBtn.href = "logout.html";
+  } else if (authBtn) {
+    authBtn.textContent = "Login";
+    authBtn.href = "login.html";
+  }
+</script>
+
 </body>
 </html>
