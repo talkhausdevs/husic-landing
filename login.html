@@ -1,64 +1,66 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login | HÜSIC</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Urbanist', sans-serif; }
-  </style>
+  <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
-<body class="bg-black text-white">
-  <div class="min-h-screen flex items-center justify-center px-4">
-    <div class="bg-white/10 p-8 rounded-xl w-full max-w-md">
-      <h1 class="text-3xl font-black text-center text-sky-400 mb-6">Welcome Back</h1>
-      <form id="loginForm" class="space-y-5">
-        <div>
-          <label class="block text-sm font-bold mb-1">Email</label>
-          <input type="email" id="email" required class="w-full px-4 py-2 rounded-lg bg-white/10 text-white">
-        </div>
-        <div>
-          <label class="block text-sm font-bold mb-1">Password</label>
-          <input type="password" id="password" required class="w-full px-4 py-2 rounded-lg bg-white/10 text-white">
-        </div>
-        <div id="errorMsg" class="text-red-400 text-sm"></div>
-        <button type="submit" class="w-full py-3 rounded-lg bg-sky-500 hover:bg-sky-600 text-white font-bold transition">Log In</button>
-      </form>
-      <p class="text-sm text-center mt-4">Don't have an account? <a href="signup.html" class="text-sky-400 underline">Sign up</a></p>
-    </div>
+<body class="bg-black flex items-center justify-center h-screen text-white font-urbanist">
+  <div class="bg-zinc-900 p-8 rounded-xl w-full max-w-md shadow-lg">
+    <h2 class="text-2xl font-bold text-center mb-6">Welcome Back</h2>
+    <form>
+      <label for="email" class="block text-sm mb-1">Email</label>
+      <input id="email" type="email" required class="w-full mb-4 px-4 py-2 rounded bg-zinc-800 text-white border-none" />
+      
+      <label for="password" class="block text-sm mb-1">Password</label>
+      <input id="password" type="password" required class="w-full mb-4 px-4 py-2 rounded bg-zinc-800 text-white border-none" />
+
+      <p id="error-message" class="text-red-500 text-sm mb-3"></p>
+      
+      <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-black font-bold py-2 px-4 rounded">Log In</button>
+    </form>
+    <p class="text-sm mt-4 text-center text-gray-400">
+      Don’t have an account? <a href="signup.html" class="text-sky-400">Sign up</a>
+    </p>
   </div>
 
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js"></script>
+
   <script>
     const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
+      apiKey: "AIzaSyBgFzQHL_q02mGF083TkLREpFyU0dE3Hcs",
+      authDomain: "husic-6705e.firebaseapp.com",
+      projectId: "husic-6705e",
+      storageBucket: "husic-6705e.firebasestorage.app",
+      messagingSenderId: "311183107893",
+      appId: "1:311183107893:web:c62720409ce8669b64ce7c"
     };
+
     firebase.initializeApp(firebaseConfig);
 
-    const loginForm = document.getElementById('loginForm');
-    const errorMsg = document.getElementById('errorMsg');
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector("form");
 
-    loginForm.addEventListener('submit', function (e) {
-      e.preventDefault();
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
 
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(() => {
-          window.location.href = 'dashboard.html';
-        })
-        .catch((error) => {
-          errorMsg.textContent = error.message;
-        });
+        firebase.auth().signInWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            localStorage.setItem("userLoggedIn", "true");
+            window.location.href = "index.html#pricing";
+          })
+          .catch((error) => {
+            document.getElementById("error-message").innerText = error.message;
+          });
+      });
     });
   </script>
 </body>
