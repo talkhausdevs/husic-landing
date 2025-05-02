@@ -3,71 +3,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Browse | HÜSIC</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     body { font-family: 'Urbanist', sans-serif; }
-    .section-title {
-      background: linear-gradient(to right, #38bdf8, #0ea5e9);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
   </style>
 </head>
 <body class="bg-black text-white">
   <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50">
-    <a href="index.html"><img src="icon.png" alt="HÜSIC logo" class="h-10 w-auto" /></a>
-    <ul class="flex space-x-6 text-sm font-medium" id="navLinks">
+    <a href="index.html"><img src="icon.png" alt="HÜSIC logo" class="h-10 w-auto"/></a>
+    <ul class="flex space-x-6 text-sm font-medium">
       <li><a href="index.html" class="hover:text-gray-400 transition">Home</a></li>
-      <li><a href="browse.html" class="hover:text-gray-400 transition text-sky-400">Browse</a></li>
+      <li><a href="browse.html" class="text-sky-400">Browse</a></li>
       <li><a href="upload.html" class="hover:text-gray-400 transition">Upload</a></li>
       <li><a href="dashboard.html" class="hover:text-gray-400 transition">Dashboard</a></li>
-      <li><a href="login.html" class="hover:text-gray-400 transition">Login</a></li>
+      <li><a href="login.html" class="hover:text-gray-400 transition">Logout</a></li>
     </ul>
   </nav>
 
-  <main class="pt-36 px-6 max-w-7xl mx-auto space-y-24">
-    <section>
-      <h1 class="text-4xl font-black section-title mb-6">🔥 Trending Artists</h1>
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <div class="bg-white/5 p-4 rounded-xl text-center">
-          <img src="bijou.jpg" class="w-24 h-24 mx-auto rounded-full mb-3" />
-          <h3 class="text-white font-bold">Bijou Nicole</h3>
-          <p class="text-sm text-gray-400">Alternative Soul</p>
-          <a href="artist.html" class="text-sm text-sky-400 hover:underline">View Profile</a>
-        </div>
-        <div class="bg-white/5 p-4 rounded-xl text-center">
-          <img src="glamrock.jpg" class="w-24 h-24 mx-auto rounded-full mb-3" />
-          <h3 class="text-white font-bold">GlamRockBecky</h3>
-          <p class="text-sm text-gray-400">Glam Rock</p>
-          <a href="artist.html" class="text-sm text-sky-400 hover:underline">View Profile</a>
-        </div>
-      </div>
+  <main class="pt-28 px-6 max-w-6xl mx-auto space-y-16">
+    <section class="flex justify-between items-center">
+      <h1 class="text-4xl font-black">🔥 Browse Artists</h1>
+      <a href="playlist-builder.html" class="bg-pink-600 text-white px-5 py-2 rounded-full font-bold hover:bg-pink-700">🎶 Create Playlist</a>
     </section>
+    <p class="text-gray-400 mt-2">Discover music, creators, and new sounds.</p>
 
-    <section>
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-3xl font-bold section-title">🎧 Curated Playlists</h2>
-        <a href="playlist-builder.html" class="text-sky-400 hover:underline text-sm">+ Create Playlist</a>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white/5 p-4 rounded-xl">
-          <h3 class="text-lg font-bold mb-2">Breakup Recovery</h3>
-          <p class="text-sm text-gray-400">Softie-core tracks for healing</p>
-        </div>
-        <div class="bg-white/5 p-4 rounded-xl">
-          <h3 class="text-lg font-bold mb-2">Friday Feels</h3>
-          <p class="text-sm text-gray-400">Weekend-ready energy 💃</p>
-        </div>
-        <div class="bg-white/5 p-4 rounded-xl">
-          <h3 class="text-lg font-bold mb-2">HÜSIC Rising</h3>
-          <p class="text-sm text-gray-400">New artists, same vibes 🔥</p>
-        </div>
-      </div>
-    </section>
+    <!-- Artist cards and genres would follow here as before -->
+    <div class="mt-10 text-gray-400">✨ Artists will be listed here ✨</div>
   </main>
 </body>
 </html>
