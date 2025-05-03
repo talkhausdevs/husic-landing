@@ -5,106 +5,112 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HÜSIC | It Hits Different</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet"/>
-</head>
-<body class="bg-black text-white">
-  <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50">
-    <a href="index.html"><img src="icon.png" alt="HÜSIC logo" class="h-10 w-auto"/></a>
-    <ul class="flex space-x-6 text-sm font-medium">
-      <li><a href="index.html" class="text-sky-400">Home</a></li>
-      <li><a href="browse.html" class="hover:text-gray-400 transition">Browse</a></li>
-      <li><a href="upload.html" class="hover:text-gray-400 transition">Upload</a></li>
-      <li><a href="dashboard.html" class="hover:text-gray-400 transition">Dashboard</a></li>
-      <li><a href="login.html" class="hover:text-gray-400 transition" id="authButton">Login</a></li>
-    </ul>
-  </nav>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0c0c0c;
+      color: white;
+      overflow-x: hidden;
+    }
 
-  <header class="h-screen flex flex-col items-center justify-center text-center px-4 pt-28">
-    <h1 class="text-6xl font-black gradient-header animate-pulse">HÜSIC</h1>
-    <p class="text-gray-400 mt-2">It Hits Different</p>
-    <div class="mt-6">
-      <a href="signup.html" class="btn glow-box bg-sky-500 hover:bg-sky-600 text-black">✨ Sign Up Now</a>
-    </div>
-    <div class="mt-20 animate-bounce">
-      <span class="text-sky-400 text-2xl">↓</span>
+    header {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    header video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.4);
+      z-index: -1;
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      top: 40%;
+      transform: translateY(-50%);
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      text-shadow: 0 0 15px #00eaff;
+      animation: shimmer 2s infinite;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #ccc;
+    }
+
+    .hero-content button {
+      margin-top: 2rem;
+      padding: 12px 30px;
+      background: #00eaff;
+      color: #000;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00eaff90;
+      transition: 0.3s ease;
+    }
+
+    .hero-content button:hover {
+      background: #00c2e0;
+    }
+
+    @keyframes shimmer {
+      0% { text-shadow: 0 0 5px #00eaff; }
+      50% { text-shadow: 0 0 15px #00eaff, 0 0 30px #00eaff; }
+      100% { text-shadow: 0 0 5px #00eaff; }
+    }
+
+    .glow-section {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .glow-section h2 {
+      font-size: 2rem;
+      color: #00eaff;
+      text-shadow: 0 0 10px #00eaff;
+      margin-bottom: 1rem;
+    }
+
+    .glow-section p {
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <video autoplay muted loop>
+      <source src="https://cdn.coverr.co/videos/coverr-music-concert-lights-6994/1080p.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <h1>HÜSIC</h1>
+      <p>It Hits Different. Upload, Stream, and Share Your Music Worldwide.</p>
+      <button onclick="location.href='signup.html'">Join Early Access</button>
     </div>
   </header>
 
-  <main class="px-6 max-w-5xl mx-auto space-y-20">
-    <section>
-      <h2 class="text-3xl font-bold gradient-header">💡 What You Can Do</h2>
-      <div class="gradient-bar"></div>
-      <ul class="space-y-4 mt-4 text-gray-300">
-        <li>🎵 Upload your music with ease</li>
-        <li>📊 Track your stats and performance</li>
-        <li>🌍 Distribute to Spotify, Apple Music, and more</li>
-        <li>🧩 Build playlists, message fans, and stay in control</li>
-      </ul>
-    </section>
+  <section class="glow-section">
+    <h2>Be One of the First</h2>
+    <p>We're building the next movement in music tech. No labels. No limits. Join the HÜSIC revolution today.</p>
+  </section>
 
-    <section>
-      <h2 class="text-3xl font-bold gradient-header">💰 Pricing Plans</h2>
-      <div class="gradient-bar"></div>
-      <div class="grid md:grid-cols-3 gap-6 mt-6 text-center">
-        <div class="glow-box">
-          <h3 class="text-xl font-bold">Starter</h3>
-          <p class="gold-text text-lg">$5/mo or $10/yr</p>
-          <ul class="mt-2 text-sm text-gray-400 space-y-1">
-            <li>✔ Unlimited uploads</li>
-            <li>✖ No analytics</li>
-            <li>✖ No video uploads</li>
-          </ul>
-        </div>
-        <div class="glow-box">
-          <h3 class="text-xl font-bold">Pro</h3>
-          <p class="gold-text text-lg">$15/mo or $50/yr</p>
-          <ul class="mt-2 text-sm text-gray-400 space-y-1">
-            <li>✔ Upload to streaming platforms</li>
-            <li>✔ Analytics unlocked</li>
-            <li>✖ No video uploads</li>
-          </ul>
-        </div>
-        <div class="glow-box">
-          <h3 class="text-xl font-bold">Premium</h3>
-          <p class="gold-text text-lg">$20/mo or $70/yr</p>
-          <ul class="mt-2 text-sm text-gray-400 space-y-1">
-            <li>✔ Upload to all platforms</li>
-            <li>✔ Analytics + music video uploads</li>
-            <li>✔ Priority support</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="text-3xl font-bold gradient-header">👑 Meet the Founders</h2>
-      <div class="gradient-bar"></div>
-      <div class="grid md:grid-cols-3 gap-6 mt-6 text-center">
-        <div class="glow-box">
-          <h4 class="text-xl font-semibold">Roosevelt Wooden</h4>
-          <p class="text-sm text-gray-400">Creative Visionary & Co-Founder</p>
-        </div>
-        <div class="glow-box">
-          <h4 class="text-xl font-semibold">Ethan Burton</h4>
-          <p class="text-sm text-gray-400">Tech Lead & Co-Founder</p>
-        </div>
-        <div class="glow-box">
-          <h4 class="text-xl font-semibold">Jason JFrancis</h4>
-          <p class="text-sm text-gray-400">Business Dev & Partner</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    const auth = localStorage.getItem("userLoggedIn");
-    const authBtn = document.getElementById("authButton");
-    if (auth && authBtn) {
-      authBtn.textContent = "Logout";
-      authBtn.href = "logout.html";
-    }
-  </script>
 </body>
 </html>
