@@ -74,8 +74,10 @@
 
       firebase.auth().signInWithEmailAndPassword(email, password)
         .then(() => {
-          alert("✅ Login successful!");
+          console.log("✅ Login successful!");
           localStorage.setItem("userLoggedIn", "true");
+          // 🔁 Redirect to pricing page after login
+          window.location.href = "pricing.html";
         })
         .catch(error => {
           console.error("❌ Firebase error:", error.message);
