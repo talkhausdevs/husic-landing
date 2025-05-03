@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Test</title>
+  <meta charset="UTF-8" />
+</head>
+<body style="font-family: sans-serif; background: #111; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+  <h1>HÜSIC Firebase Login Test</h1>
+  <form style="margin-top: 20px;">
+    <input type="email" id="email" placeholder="Email" required style="padding: 10px; margin: 5px;" />
+    <input type="password" id="password" placeholder="Password" required style="padding: 10px; margin: 5px;" />
+    <button type="submit" style="padding: 10px 20px; margin: 5px;">Log In</button>
+    <p id="error-message" style="color: red;"></p>
+  </form>
+
+  <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBgFzQHL_q02mGF083TkLREpFyU0dE3Hcs",
+      authDomain: "husic-6705e.firebaseapp.com",
+      projectId: "husic-6705e",
+      storageBucket: "husic-6705e.firebasestorage.app",
+      messagingSenderId: "311183107893",
+      appId: "1:311183107893:web:c62720409ce8669b64ce7c"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    document.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(() => {
+          alert("Login successful!");
+          localStorage.setItem("userLoggedIn", "true");
+        })
+        .catch(error => {
+          document.getElementById("error-message").textContent = error.message;
+        });
+    });
+  </script>
+</body>
+</html>
