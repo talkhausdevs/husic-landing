@@ -1,38 +1,60 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+  <title>Login | HÜSIC</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login | HÜSIC</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="style.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      background: #00eaff;
+      border: none;
+      cursor: pointer;
+    }
+    #error-message {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
 </head>
-<body class="bg-black flex items-center justify-center h-screen text-white font-urbanist">
-  <div class="bg-zinc-900 p-8 rounded-xl w-full max-w-md shadow-lg">
-    <h2 class="text-2xl font-bold text-center mb-6">Welcome Back</h2>
-    <form>
-      <label for="email" class="block text-sm mb-1">Email</label>
-      <input id="email" type="email" required class="w-full mb-4 px-4 py-2 rounded bg-zinc-800 text-white border-none" />
-      
-      <label for="password" class="block text-sm mb-1">Password</label>
-      <input id="password" type="password" required class="w-full mb-4 px-4 py-2 rounded bg-zinc-800 text-white border-none" />
+<body>
+  <h1>🔥 HÜSIC Login Debug Mode</h1>
+  <form>
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button type="submit">Log In</button>
+    <p id="error-message"></p>
+  </form>
 
-      <p id="error-message" class="text-red-500 text-sm mb-3"></p>
-      
-      <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-black font-bold py-2 px-4 rounded">Log In</button>
-    </form>
-    <p class="text-sm mt-4 text-center text-gray-400">
-      Don’t have an account? <a href="signup.html" class="text-sky-400">Sign up</a>
-    </p>
-  </div>
-
-  <!-- Firebase Scripts -->
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js"></script>
 
   <script>
+    console.log("✅ Firebase scripts loaded");
+
     const firebaseConfig = {
       apiKey: "AIzaSyBgFzQHL_q02mGF083TkLREpFyU0dE3Hcs",
       authDomain: "husic-6705e.firebaseapp.com",
@@ -43,24 +65,23 @@
     };
 
     firebase.initializeApp(firebaseConfig);
+    console.log("🚀 Firebase initialized");
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.querySelector("form");
+    document.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      console.log("📨 Attempting login with:", email);
 
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-
-        firebase.auth().signInWithEmailAndPassword(email, password)
-          .then((userCredential) => {
-            localStorage.setItem("userLoggedIn", "true");
-            window.location.href = "index.html#pricing";
-          })
-          .catch((error) => {
-            document.getElementById("error-message").innerText = error.message;
-          });
-      });
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(() => {
+          alert("✅ Login successful!");
+          localStorage.setItem("userLoggedIn", "true");
+        })
+        .catch(error => {
+          console.error("❌ Firebase error:", error.message);
+          document.getElementById("error-message").innerText = error.message;
+        });
     });
   </script>
 </body>
