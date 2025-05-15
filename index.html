@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HÜSIC | It Hits Different</title>
+  <title>HÜSIC | Streaming for the Underground</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0c0c0c;
+    html, body {
+      background-color: #0b0b0b;
+      font-family: 'Share Tech Mono', monospace;
       color: white;
       overflow-x: hidden;
     }
@@ -18,99 +19,67 @@
       position: relative;
       height: 100vh;
       width: 100%;
-      overflow: hidden;
-    }
-
-    header video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.4);
-      z-index: -1;
-    }
-
-    .hero-content {
-      position: relative;
+      background: linear-gradient(120deg, #190017, #2b0030);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       text-align: center;
-      top: 40%;
-      transform: translateY(-50%);
-      padding: 0 20px;
+      background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+      background-repeat: repeat;
+      background-size: cover;
     }
 
-    .hero-content h1 {
+    h1 {
+      font-family: 'Rubik Mono One', sans-serif;
       font-size: 4rem;
-      text-shadow: 0 0 15px #00eaff;
-      animation: shimmer 2s infinite;
+      color: #ff003c;
+      letter-spacing: -1px;
+      text-shadow: 0 0 5px #ff003c, 0 0 20px #6a005f;
+      animation: glitch 1s infinite;
     }
 
-    .hero-content p {
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 blue; }
+      20% { text-shadow: -2px 0 red, 2px 0 blue; }
+      40% { text-shadow: 2px 2px #ff003c, -2px -2px #6a005f; }
+      60% { text-shadow: 0 0 5px #ff003c; }
+      80% { text-shadow: -2px 2px red, 2px -2px blue; }
+      100% { text-shadow: 2px 0 red, -2px 0 blue; }
+    }
+
+    p {
       font-size: 1.2rem;
-      margin-top: 1rem;
-      color: #ccc;
-    }
-
-    .hero-content button {
-      margin-top: 2rem;
-      padding: 12px 30px;
-      background: #00eaff;
-      color: #000;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #00eaff90;
-      transition: 0.3s ease;
-    }
-
-    .hero-content button:hover {
-      background: #00c2e0;
-    }
-
-    @keyframes shimmer {
-      0% { text-shadow: 0 0 5px #00eaff; }
-      50% { text-shadow: 0 0 15px #00eaff, 0 0 30px #00eaff; }
-      100% { text-shadow: 0 0 5px #00eaff; }
-    }
-
-    .glow-section {
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-
-    .glow-section h2 {
-      font-size: 2rem;
-      color: #00eaff;
-      text-shadow: 0 0 10px #00eaff;
-      margin-bottom: 1rem;
-    }
-
-    .glow-section p {
       color: #ccc;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 1rem auto 2rem auto;
+    }
+
+    button {
+      background: #ff003c;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      border-radius: 0;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff003c88;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      background: #6a005f;
+      box-shadow: 0 0 20px #ff003caa;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <video autoplay muted loop>
-      <source src="https://cdn.coverr.co/videos/coverr-music-concert-lights-6994/1080p.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="hero-content">
-      <h1>HÜSIC</h1>
-      <p>It Hits Different. Upload, Stream, and Share Your Music Worldwide.</p>
-      <button onclick="location.href='signup.html'">Join Early Access</button>
-    </div>
+    <h1>HÜSIC</h1>
+    <p>Streaming for the underground. Built by artists. Curated by chaos.</p>
+    <button onclick="location.href='signup.html'">JOIN THE CIRCLE</button>
   </header>
-
-  <section class="glow-section">
-    <h2>Be One of the First</h2>
-    <p>We're building the next movement in music tech. No labels. No limits. Join the HÜSIC revolution today.</p>
-  </section>
-
 </body>
 </html>
