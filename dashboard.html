@@ -76,15 +76,78 @@
   </style>
 </head>
 <body>
-<nav>
-  <div class="logo"><a href="index.html">HÜSIC</a></div>
-  <div class="nav-links">
-    <a href="browse.html">Browse</a>
-    <a href="upload.html">Upload</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="messages.html">Messages</a>
-  </div>
-</nav>
+  <style>
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.95);
+      border-bottom: 2px solid #ff003c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: #ff003c;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: right;
+    }
+
+    nav a:hover {
+      color: #ff003c;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-family: 'Rubik Mono One', sans-serif;
+      color: #ff003c;
+      text-shadow: 0 0 5px #ff003c, 0 0 15px #6a005f;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    body {
+      padding-top: 80px; /* Make space for navbar */
+    }
+  </style>
+
+  <nav>
+    <div class="logo"><a href="index.html">HÜSIC</a></div>
+    <div class="nav-links">
+      <a href="browse.html">Browse</a>
+      <a href="upload.html">Upload</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="messages.html">Messages</a>
+    </div>
+  </nav>
 
 
   <header>
