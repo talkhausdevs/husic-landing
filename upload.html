@@ -1,82 +1,129 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HÜSIC</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css" />
+  <title>Dashboard | HÜSIC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #0c0c0c;
+      color: white;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 3rem;
+      color: #ff003c;
+      text-shadow: 0 0 5px #ff003c, 0 0 20px #6a005f;
+      animation: flicker 2s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: #ff005d;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 6px #ff005d;
+    }
+
+    .card {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #ff005d;
+      box-shadow: 0 0 10px #ff005d22;
+    }
+
+    .card p {
+      color: #ccc;
+      margin: 0.5rem 0;
+    }
+
+    .upload-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background: #ff003c;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+      box-shadow: 0 0 10px #ff003c55;
+      transition: 0.2s ease;
+    }
+
+    .upload-btn:hover {
+      background: #6a005f;
+    }
+  </style>
 </head>
+<body>
+<nav>
+  <div class="logo"><a href="index.html">HÜSIC</a></div>
+  <div class="nav-links">
+    <a href="browse.html">Browse</a>
+    <a href="upload.html">Upload</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="messages.html">Messages</a>
+  </div>
+</nav>
 
-<body class="bg-black text-white">
-<script>
-  if (!localStorage.getItem("userLoggedIn")) {
-    window.location.href = "login.html";
-  }
-</script>
 
-  <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50">
-    <a href="index.html"><img src="icon.png" alt="HÜSIC logo" class="h-10 w-auto"/></a>
-    <ul class="flex space-x-6 text-sm font-medium">
-      <li><a href="index.html" class="hover:text-gray-400 transition">Home</a></li>
-      <li><a href="browse.html" class="hover:text-gray-400 transition">Browse</a></li>
-      <li><a href="upload.html" class="text-sky-400">Upload</a></li>
-      <li><a href="dashboard.html" class="hover:text-gray-400 transition">Dashboard</a></li>
-      <li><a href="login.html" class="hover:text-gray-400 transition">Logout</a></li>
-    </ul>
-  </nav>
+  <header>
+    <h1>UPLOAD CENTER</h1>
+    <p>Time to drop something real. Your journey’s just beginning.</p>
+  </header>
 
-  <main class="pt-28 px-6 max-w-4xl mx-auto space-y-12">
-    <header>
-      <h1 class="text-4xl font-black mb-2">📤 Upload Music</h1>
-      <p class="text-gray-400 text-sm">Submit new songs, build your discography, and distribute like a pro.</p>
-    </header>
+  <section>
+    <h2>🎶 Latest Uploads</h2>
+    <div class="card">
+      <p><strong>Track:</strong> Dark Matter (Unreleased)</p>
+      <p><strong>Status:</strong> Draft</p>
+      <button class="upload-btn">Edit</button>
+    </div>
+    <div class="card">
+      <p><strong>Track:</strong> VCR Soul</p>
+      <p><strong>Status:</strong> Published</p>
+      <button class="upload-btn">View Stats</button>
+    </div>
+  </section>
 
-    <section class="bg-white/5 p-6 rounded-lg">
-      <div class="mb-6 text-center border-2 border-dashed border-gray-600 rounded-lg py-12 px-4">
-        <p class="text-gray-400 mb-2">Drag & Drop your audio file here</p>
-        <p class="text-sm text-gray-600">or click to browse files</p>
-      </div>
+  <section>
+    <h2>📊 Artist Stats</h2>
+    <div class="card">
+      <p><strong>Streams (This Month):</strong> 8,124</p>
+      <p><strong>Followers:</strong> 1,529</p>
+      <p><strong>Revenue:</strong> $264.20</p>
+    </div>
+  </section>
 
-      <form class="space-y-4">
-        <input type="text" placeholder="Track Title" class="w-full px-4 py-2 bg-white/10 rounded text-white placeholder-gray-400"/>
-        <input type="text" placeholder="Genre" class="w-full px-4 py-2 bg-white/10 rounded text-white placeholder-gray-400"/>
-        <textarea placeholder="Track Description" class="w-full px-4 py-2 bg-white/10 rounded text-white placeholder-gray-400"></textarea>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input type="text" placeholder="Language" class="px-4 py-2 bg-white/10 rounded text-white placeholder-gray-400"/>
-          <input type="text" placeholder="Target Region(s)" class="px-4 py-2 bg-white/10 rounded text-white placeholder-gray-400"/>
-        </div>
-        <input type="text" placeholder="Copyright Owner" class="w-full px-4 py-2 bg-white/10 rounded text-white placeholder-gray-400"/>
-        <input type="text" placeholder="Record Label (Optional)" class="w-full px-4 py-2 bg-white/10 rounded text-white placeholder-gray-400"/>
-        
-        <div class="flex gap-4">
-          <button class="bg-white/10 border border-white px-4 py-2 rounded hover:bg-white/20">Save as Draft 🔐</button>
-          <button class="bg-sky-500 px-4 py-2 rounded hover:bg-sky-600 font-bold">Publish 🚀</button>
-        </div>
-      </form>
-    </section>
-
-    <section class="bg-white/5 p-6 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">🌐 Smart Link Preview</h2>
-      <div class="bg-white/10 text-sm text-gray-300 px-4 py-3 rounded">https://husic.io/your-track-title</div>
-    </section>
-  </main>
-
-<script>
-  const auth = localStorage.getItem("userLoggedIn");
-  const authBtn = document.getElementById("authButton");
-  if (auth && authBtn) {
-    authBtn.textContent = "Logout";
-    authBtn.href = "logout.html";
-  } else if (authBtn) {
-    authBtn.textContent = "Login";
-    authBtn.href = "login.html";
-  }
-</script>
+  <section>
+    <h2>🔧 Quick Tools</h2>
+    <div class="card">
+      <p>👤 Edit Your Artist Profile</p>
+      <p>🎧 Create a Playlist</p>
+      <p>📝 View Your Smart Links</p>
+    </div>
+    <button class="upload-btn" onclick="location.href='upload.html'">Upload New Track</button>
+  </section>
 
 </body>
 </html>

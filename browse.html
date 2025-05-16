@@ -1,56 +1,129 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HÜSIC</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css" />
+  <title>Dashboard | HÜSIC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #0c0c0c;
+      color: white;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 3rem;
+      color: #ff003c;
+      text-shadow: 0 0 5px #ff003c, 0 0 20px #6a005f;
+      animation: flicker 2s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: #ff005d;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 6px #ff005d;
+    }
+
+    .card {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #ff005d;
+      box-shadow: 0 0 10px #ff005d22;
+    }
+
+    .card p {
+      color: #ccc;
+      margin: 0.5rem 0;
+    }
+
+    .upload-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background: #ff003c;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+      box-shadow: 0 0 10px #ff003c55;
+      transition: 0.2s ease;
+    }
+
+    .upload-btn:hover {
+      background: #6a005f;
+    }
+  </style>
 </head>
+<body>
+<nav>
+  <div class="logo"><a href="index.html">HÜSIC</a></div>
+  <div class="nav-links">
+    <a href="browse.html">Browse</a>
+    <a href="upload.html">Upload</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="messages.html">Messages</a>
+  </div>
+</nav>
 
-<body class="bg-black text-white">
-<script>
-  if (!localStorage.getItem("userLoggedIn")) {
-    window.location.href = "login.html";
-  }
-</script>
 
-  <nav class="flex justify-between items-center px-6 py-4 fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50">
-    <a href="index.html"><img src="icon.png" alt="HÜSIC logo" class="h-10 w-auto"/></a>
-    <ul class="flex space-x-6 text-sm font-medium">
-      <li><a href="index.html" class="hover:text-gray-400 transition">Home</a></li>
-      <li><a href="browse.html" class="text-sky-400">Browse</a></li>
-      <li><a href="upload.html" class="hover:text-gray-400 transition">Upload</a></li>
-      <li><a href="dashboard.html" class="hover:text-gray-400 transition">Dashboard</a></li>
-      <li><a href="login.html" class="hover:text-gray-400 transition">Logout</a></li>
-    </ul>
-  </nav>
+  <header>
+    <h1>BROWSE THE UNDERGROUND</h1>
+    <p>Dive into the noise. Your journey’s just beginning.</p>
+  </header>
 
-  <main class="pt-28 px-6 max-w-6xl mx-auto space-y-16">
-    <section class="flex justify-between items-center">
-      <h1 class="text-4xl font-black">🔥 Browse Artists</h1>
-      <a href="playlist-builder.html" class="bg-pink-600 text-white px-5 py-2 rounded-full font-bold hover:bg-pink-700">🎶 Create Playlist</a>
-    </section>
-    <p class="text-gray-400 mt-2">Discover music, creators, and new sounds.</p>
+  <section>
+    <h2>🎶 Latest Uploads</h2>
+    <div class="card">
+      <p><strong>Track:</strong> Dark Matter (Unreleased)</p>
+      <p><strong>Status:</strong> Draft</p>
+      <button class="upload-btn">Edit</button>
+    </div>
+    <div class="card">
+      <p><strong>Track:</strong> VCR Soul</p>
+      <p><strong>Status:</strong> Published</p>
+      <button class="upload-btn">View Stats</button>
+    </div>
+  </section>
 
-    <!-- Artist cards and genres would follow here as before -->
-    <div class="mt-10 text-gray-400">✨ Artists will be listed here ✨</div>
-  </main>
+  <section>
+    <h2>📊 Artist Stats</h2>
+    <div class="card">
+      <p><strong>Streams (This Month):</strong> 8,124</p>
+      <p><strong>Followers:</strong> 1,529</p>
+      <p><strong>Revenue:</strong> $264.20</p>
+    </div>
+  </section>
 
-<script>
-  const auth = localStorage.getItem("userLoggedIn");
-  const authBtn = document.getElementById("authButton");
-  if (auth && authBtn) {
-    authBtn.textContent = "Logout";
-    authBtn.href = "logout.html";
-  } else if (authBtn) {
-    authBtn.textContent = "Login";
-    authBtn.href = "login.html";
-  }
-</script>
+  <section>
+    <h2>🔧 Quick Tools</h2>
+    <div class="card">
+      <p>👤 Edit Your Artist Profile</p>
+      <p>🎧 Create a Playlist</p>
+      <p>📝 View Your Smart Links</p>
+    </div>
+    <button class="upload-btn" onclick="location.href='upload.html'">Upload New Track</button>
+  </section>
 
 </body>
 </html>
