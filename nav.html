@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HÜSIC | Underground Music Lives Here</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #0a0a0a;
+      color: white;
+    }
+
+    header {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    header video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.3);
+      z-index: -1;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+      background-repeat: repeat;
+      background-size: cover;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Rubik Mono One', sans-serif;
+      font-size: 4rem;
+      color: #ff003c;
+      text-shadow: 0 0 10px #ff003c, 0 0 25px #6a005f;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 blue; }
+      20% { text-shadow: -2px 0 red, 2px 0 blue; }
+      40% { text-shadow: 2px 2px #ff003c, -2px -2px #6a005f; }
+      60% { text-shadow: 0 0 5px #ff003c; }
+      80% { text-shadow: -2px 2px red, 2px -2px blue; }
+      100% { text-shadow: 2px 0 red, -2px 0 blue; }
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-top: 1rem;
+      color: #ccc;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+      background-color: #0c0c0c;
+    }
+
+    section h2 {
+      color: #ff003c;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 6px #ff003c;
+    }
+
+    section p {
+      color: #ccc;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.9);
+      border-bottom: 2px solid #ff003c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 999;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: #ff003c;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: right;
+    }
+
+    nav a:hover {
+      color: #ff003c;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-family: 'Rubik Mono One', sans-serif;
+      color: #ff003c;
+      text-shadow: 0 0 5px #ff003c, 0 0 15px #6a005f;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><a href="index.html">HÜSIC</a></div>
+  <div class="nav-links">
+    <a href="browse.html">Browse</a>
+    <a href="upload.html">Upload</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="messages.html">Messages</a>
+  </div>
+</nav>
+
+  <header>
+    <video autoplay muted loop>
+      <source src="https://cdn.coverr.co/videos/coverr-music-concert-lights-6994/1080p.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+    <div class="hero">
+      <h1>HÜSIC</h1>
+      <p>Streaming for the underground. Built by artists. Curated by chaos.</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>What is HÜSIC?</h2>
+    <p>
+      HÜSIC is a music streaming platform for the artists who don’t ask permission. We’re not trying to be the next mainstream giant. We’re here for the ones who make their own sound, their own scene, and their own lane. No labels. No rules. Just HÜSIC.
+    </p>
+  </section>
+
+  <section>
+    <h2>Why We Exist</h2>
+    <p>
+      Algorithms killed discovery. We’re bringing it back. With curated chaos, raw artist pages, and real independent energy — HÜSIC is building a home for music that doesn’t fit the mold. If you know, you know.
+    </p>
+  </section>
+
+  <section>
+    <h2>Built Different</h2>
+    <p>
+      Upload. Stream. Distribute. Promote. HÜSIC isn’t just where you play your music — it’s where you launch your movement. It’s all artist-first, no compromise. We’re just getting started.
+    </p>
+  </section>
+
+  <footer>
+    © 2025 HÜSIC. Streaming for the underground.
+  </footer>
+
+</body>
+</html>
